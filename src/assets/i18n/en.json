@@ -1,0 +1,26 @@
+{
+  "menu": {
+    "home": "Home",
+    "projects": "Projects",
+    "about": "About Me",
+    "contact": "Contact",
+    "start_project": "Start a Project"
+  },
+  "home": {
+    "title": "Welcome to my portfolio",
+    "description": "I am a fullstack developer passionate about creating digital experiences."
+  },
+  "projects": {
+    "title": "My Projects",
+    "description": "Here you will find some of the projects I have worked on."
+  },
+  "about": {
+    "title": "About Me",
+    "description": "I am a developer passionate about technology and innovation."
+  },
+  "contact": {
+    "title": "Contact",
+    "description": "You can contact me through my social media or email."
+  },
+  "language": "English"
+}
