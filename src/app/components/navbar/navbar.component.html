@@ -1,6 +1,6 @@
 <header class="navbar" [class.scrolled]="isScrolled">
   <div *ngIf="!isMobile" class="menu-left">
-    <h1 class="logo">ET</h1>
+    <img src="assets/icons/logo.svg" alt="Logo" class="logo">
     <nav>
       <ul class="nav-links">
         <li>
@@ -29,8 +29,8 @@
     </nav>
     <div class="menu-right">
       <div class="language-selector">
-        <img src="assets/icons/flag-es.svg" alt="Español" (click)="changeLanguage('es')">
-        <img src="assets/icons/flag-en.svg" alt="English" (click)="changeLanguage('en')">
+        <img src="assets/icons/icon_es.svg" alt="Español" (click)="changeLanguage('es')">
+        <img src="assets/icons/icon_en.svg" alt="English" (click)="changeLanguage('en')">
       </div>
       <a href="mailto:eath2497@gmail.com?subject=Inicio de Proyecto"
         class="highlight"
@@ -43,7 +43,7 @@
 
   <div *ngIf="isMobile" class="mobile-navbar">
     <div class="mobile-navbar-content">
-      <h1 class="logo">ET</h1>
+      <img src="assets/icons/logo.svg" alt="Logo" class="logo">
       <h2 class="section-name">{{ currentSection }}</h2>
       <button class="menu-toggle" (click)="toggleMenu()">☰</button>
     </div>

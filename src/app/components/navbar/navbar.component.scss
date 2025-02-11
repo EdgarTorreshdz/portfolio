@@ -25,11 +25,7 @@ nav.navbar {
 }
 
 .menu-left .logo {
-  font-size: 28px;
-  font-weight: bold;
-  border: 3px solid black;
-  padding: 5px 10px;
-  line-height: 1;
+  height: 4rem;
 }
 
 /* 📌 Menú de navegación */
@@ -133,7 +129,6 @@ nav.navbar {
     display: flex;
     align-items: center;
     width: 100%;
-    padding: 15px;
     background: white;
     border-bottom: 2px solid black;
     position: fixed;
@@ -150,9 +145,8 @@ nav.navbar {
   }
 
   .logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-    padding-left: 15px;
+    height: 4rem;
+
   }
 
   .section-name {
@@ -229,6 +223,7 @@ nav.navbar {
 /* 📌 Efecto de cambio de texto en el menú */
 .nav-links li a,
 .menu-right .highlight {
+  margin-left: 10px;
   position: relative;
   overflow: hidden;
   transition: transform 0.3s ease-in-out;

@@ -1,28 +1,68 @@
+/* 🔹 Sección del título y la imagen */
+.about-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  padding: 4rem 2rem;
+
+  .about-title {
+    flex: 1;
+    text-align: left;
+
+    .title {
+      font-size: 5rem;
+      font-weight: 800;
+      text-transform: uppercase;
+
+      @media (max-width: 1024px) {
+        font-size: 3rem;
+        text-align: center;
+      }
+    }
+  }
+
+  .about-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 450px;
+    max-height: 800px;
+
+    img {
+      width: 100%;
+      height: auto;
+      max-height: 800px; /* 🔹 Evita que la imagen crezca demasiado */
+      border-radius: 10px;
+      box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+      object-fit: cover; /* 🔹 Mantiene proporciones y recorta si es necesario */
+    }
+  }
+}
+
+/* 🔹 Mantiene el diseño del resto del contenido */
 .about-me-container {
   text-align: center;
   padding: 3rem 1rem;
 
-  .title {
-      font-size: 3rem;
-      font-weight: 800;
-      text-transform: uppercase;
-
-      @media (min-width: 768px) {
-          font-size: 5rem;
-      }
-  }
-
   .subtitle {
       margin: 2rem 0;
-      font-size: 0.875rem;
+      font-size: 2rem;
       color: gray;
   }
 
   .description {
       font-size: 1.5rem;
       font-weight: 600;
-      max-width: 800px;
+      max-width: 1400px;
       margin: 0 auto;
+      color: #000;
+      font-family: Montreal-Bold, sans-serif;
+      font-size: 2.6rem;
+      line-height: 4.2rem;
+      text-decoration: none;
+      text-transform: uppercase;
   }
 
   .technologies-section, .contact-section {
@@ -30,7 +70,7 @@
   }
 
   .technologies-title, .contact-title {
-      font-size: 0.875rem;
+      font-size: 2rem;
       color: gray;
       margin-bottom: 0.5rem;
   }
@@ -38,5 +78,35 @@
   .technologies-list, .contact-info {
       font-size: 2rem;
       font-weight: 800;
+  }
+
+}
+
+/* 🔹 Diseño responsive: apila en móviles */
+@media (max-width: 1024px) {
+  .about-header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-title {
+    text-align: center;
+  }
+
+  .about-image {
+    max-width: 300px; /* 🔹 En móviles puede ser un poco más ancha */
+  }
+}
+/* Cursor parpadeante */
+.cursor {
+  font-weight: 800;
+  font-size: 5rem;
+  color: black;
+  animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
   }
 }

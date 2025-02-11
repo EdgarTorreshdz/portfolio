@@ -1,21 +1,29 @@
+<div class="about-header">
+  <div class="about-title">
+    <h1 class="title">
+      <span>{{ animatedText }}</span><span class="cursor">|</span>
+    </h1>
+  </div>
+  <div class="about-image">
+    <img src="assets/images/profile.jpg" alt="Edgar Torres">
+  </div>
+</div>
+<!-- 🔹 Resto del contenido (Myself, Tecnologías y Contacto) queda igual -->
 <div class="about-me-container">
-  <h1 class="title">
-    {{ 'about.description' | translate }}
-  </h1>
   <div class="subtitle">{{ 'about.myself' | translate }}</div>
   <p class="description">
-    {{ 'about.myself_description' | translate }}</p>
+    {{ 'about.myself_description' | translate }}
+  </p>
 
   <div class="technologies-section">
-      <div class="technologies-title">{{ 'about.technologies' | translate }}</div>
-      <p class="technologies-list"> ANGULAR / VUE / .NET / C# / LARAVEL</p>
+    <div class="technologies-title">{{ 'about.technologies' | translate }}</div>
+    <p class="technologies-list">ANGULAR / .NET / LARAVEL / VUE</p>
   </div>
 
   <div class="contact-section">
     <div class="contact-title">{{ 'about.contact' | translate }}</div>
     <p class="contact-info">
-        <a [href]="'mailto:' + email">{{ email }}</a>
+      <a [href]="'mailto:' + email">{{ email }}</a>
     </p>
-</div>
-
+  </div>
 </div>
