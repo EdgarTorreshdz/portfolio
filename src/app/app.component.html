@@ -3,11 +3,29 @@
     <h1 class="logo">ET</h1>
     <nav>
       <ul class="nav-links">
-        <li><a (click)="navigateTo('/', 'Home')">{{ 'menu.home' | translate }}</a></li>
-        <li><a (click)="navigateTo('/projects', 'Projects')">{{ 'menu.projects' | translate }}</a></li>
-        <li><a (click)="navigateTo('/about', 'About Me')">{{ 'menu.about' | translate }}</a></li>
-        <li><a (click)="navigateTo('/contact', 'Contact')">{{ 'menu.contact' | translate }}</a></li>
+        <li>
+          <a (click)="navigateTo('/', 'Home')" data-hover="Home">
+            <span>{{ 'menu.home' | translate }}</span>
+          </a>
+        </li>
+        <li>
+          <a (click)="navigateTo('/projects', 'Projects')" data-hover="Projects">
+            <span>{{ 'menu.projects' | translate }}</span>
+          </a>
+        </li>
+        <li>
+          <a (click)="navigateTo('/about', 'About Me')" data-hover="About Me">
+            <span>{{ 'menu.about' | translate }}</span>
+          </a>
+        </li>
+        <li>
+          <a (click)="navigateTo('/contact', 'Contact')" data-hover="Contact">
+            <span>{{ 'menu.contact' | translate }}</span>
+          </a>
+        </li>
       </ul>
+
+
     </nav>
   </div>
   <div class="menu-right" *ngIf="!isMobile">
@@ -15,7 +33,11 @@
       <img src="assets/icons/flag-es.svg" alt="Español" (click)="changeLanguage('es')">
       <img src="assets/icons/flag-en.svg" alt="English" (click)="changeLanguage('en')">
     </div>
-    <a (click)="navigateTo('/contact', 'Start a Project')" class="highlight">{{ 'menu.start_project' | translate }}</a>
+    <a (click)="navigateTo('/contact', 'Start a Project')"
+      class="highlight"
+      [attr.data-hover]="'menu.start_project_contact' | translate">
+      <span>{{ 'menu.start_project' | translate }}</span>
+    </a>
   </div>
 
   <div *ngIf="isMobile" class="mobile-navbar">

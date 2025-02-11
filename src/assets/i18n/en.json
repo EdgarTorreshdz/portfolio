@@ -4,7 +4,8 @@
     "projects": "Projects",
     "about": "About Me",
     "contact": "Contact",
-    "start_project": "Start a Project"
+    "start_project": "Start a Project",
+    "start_project_contact": "Get in touch"
   },
   "home": {
     "title": "Welcome to my portfolio",

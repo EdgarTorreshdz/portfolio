@@ -201,3 +201,41 @@ main {
     padding-top: 90px; // Mayor espacio en móviles si la navbar es más alta
   }
 }
+
+
+.nav-links li a,
+.menu-right .highlight {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out;
+  height: 30px; /* Ajustar a la altura del texto */
+}
+
+.nav-links li a::before,
+.menu-right .highlight::before {
+  content: attr(data-hover);
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: black;
+  transform: translateY(100%);
+  transition: transform 0.3s ease-in-out;
+}
+
+.nav-links li a span,
+.menu-right .highlight span {
+  display: block;
+  transition: transform 0.3s ease-in-out;
+}
+
+.nav-links li a:hover span,
+.menu-right .highlight:hover span {
+  transform: translateY(-100%);
+}
+
+.nav-links li a:hover::before,
+.menu-right .highlight:hover::before {
+  transform: translateY(0);
+}
