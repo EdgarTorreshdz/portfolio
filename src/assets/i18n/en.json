@@ -5,7 +5,8 @@
     "about": "About Me",
     "contact": "Contact",
     "start_project": "Start a Project",
-    "start_project_contact": "Get in touch"
+    "start_project_contact": "Get in touch",
+    "works": "Works"
   },
   "home": {
     "title": "Welcome to my portfolio",
@@ -17,11 +18,20 @@
   },
   "about": {
     "title": "About Me",
-    "description": "I am a developer passionate about technology and innovation."
+    "description": "Hey. I'm Edgar Torres, A 27 Years Old Latino Creative Web Developer",
+    "myself": "Myself",
+    "myself_description": "Passionate about crafting unique and memorable digital experiences, I have built a career as a creative full-stack developer, solving complex challenges with innovative solutions. Known for my commitment and creativity, I have had the privilege of collaborating with outstanding companies across Mexico.",
+    "technologies": "Technologies",
+    "contact" : "Contact"
   },
   "contact": {
     "title": "Contact",
     "description": "You can contact me through my social media or email."
+  },
+  "works": {
+    "title": "Mis Proyectos",
+    "description": "Aquí encontrarás algunos de los proyectos en los que he trabajado.",
+    "selected":  "Works selected"
   },
   "language": "English"
 }

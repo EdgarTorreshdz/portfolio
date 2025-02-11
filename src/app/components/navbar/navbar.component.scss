@@ -1,0 +1,263 @@
+// 📌 NAVBAR (Menú principal)
+nav.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px 50px; /* Aumenta el padding para más espacio */
+  font-size: 22px;
+  background: white;
+  z-index: 1000;
+  border-bottom: 3px solid black;
+  text-transform: uppercase;
+  font-weight: bold;
+  height: 150px; /* 🔹 Se aumentó la altura para evitar el corte */
+}
+
+/* 📌 Menú izquierdo */
+.menu-left {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.menu-left .logo {
+  font-size: 28px;
+  font-weight: bold;
+  border: 3px solid black;
+  padding: 5px 10px;
+  line-height: 1;
+}
+
+/* 📌 Menú de navegación */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 5px; /* 🔹 Reduce el espacio entre nombres */
+  padding: 0;
+  margin: 0;
+  font-family: "Montreal-Bold", sans-serif;
+  font-size: 3rem;
+  letter-spacing: -0.06rem;
+  margin-right: 0.5rem;
+  overflow: hidden;
+  color: #cdcdcd;
+  align-items: center; /* Asegura alineación vertical */
+  height: 70px;
+  text-transform: uppercase; /* 🔹 Convierte los textos a mayúsculas */
+  font-weight: bold;
+}
+
+/* 🔹 Estilos de los enlaces */
+.nav-links li {
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+
+/* Estilos generales de los enlaces */
+.nav-links li a {
+  text-decoration: none;
+  color: #cdcdcd;
+  transition: color 0.3s ease-in-out;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+/* 🔹 Cambio de color en hover y cuando la sección está activa */
+.nav-links li a:hover,
+.nav-links li a.active {
+  color: black;
+  font-weight: bold;
+}
+
+/* 📌 Menú derecho */
+.menu-right {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  right: 50px;
+}
+
+.menu-right .highlight {
+  display: flex;
+  gap: 5px;
+  padding: 0;
+  margin: 0;
+  font-family: "Montreal-Bold", sans-serif;
+  font-size: 3rem;
+  letter-spacing: -0.06rem;
+  margin-right: 0.5rem;
+  overflow: hidden;
+  color: #cdcdcd;
+  align-items: center;
+  height: 70px;
+  text-transform: uppercase;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+/* 📌 Selector de idiomas */
+.language-selector {
+  display: flex;
+  gap: 10px;
+}
+
+.language-selector img {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+  filter: grayscale(100%);
+}
+
+.language-selector img:hover {
+  transform: scale(1.1);
+  filter: grayscale(0%);
+}
+
+/* 📌 ESTILOS RESPONSIVOS */
+@media (max-width: 1024px) {
+  .nav-links {
+    height:  100%;
+  }
+
+  .menu-left, .menu-right {
+    display: none;
+  }
+
+  .mobile-navbar {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 15px;
+    background: white;
+    border-bottom: 2px solid black;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+  }
+
+  .mobile-navbar-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding-left: 15px;
+  }
+
+  .section-name {
+    flex-grow: 1;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .menu-toggle {
+    font-size: 2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #000;
+    padding-right: 15px;
+  }
+
+  .nav-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: white;
+    text-align: center;
+    padding-top: 100px;
+    z-index: 1001;
+    transition: transform 0.3s ease-in-out;
+    transform: translateY(-100%); /* Oculta el menú por defecto */
+  }
+
+  .nav-menu.open {
+    transform: translateY(0); /* Muestra el menú cuando está activo */
+  }
+
+  .nav-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .nav-links li a {
+    font-size: 32px;
+    color: black;
+    text-decoration: none;
+  }
+
+  .nav-links li a:hover {
+    color: gray;
+  }
+}
+
+@media (min-width: 1025px) {
+  .mobile-navbar, .nav-menu {
+    display: none;
+  }
+}
+
+
+
+@media (max-width: 1024px) {
+  main {
+    padding-top: 90px; /* Mayor espacio en móviles si la navbar es más alta */
+  }
+}
+
+/* 📌 Efecto de cambio de texto en el menú */
+.nav-links li a,
+.menu-right .highlight {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out;
+}
+
+.nav-links li a::before,
+.menu-right .highlight::before {
+  content: attr(data-hover);
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: black;
+  transform: translateY(100%);
+  transition: transform 0.3s ease-in-out;
+}
+
+.nav-links li a span,
+.menu-right .highlight span {
+  display: block;
+  transition: transform 0.3s ease-in-out;
+}
+
+.nav-links li a:hover span,
+.menu-right .highlight:hover span {
+  transform: translateY(-100%);
+}
+
+.nav-links li a:hover::before,
+.menu-right .highlight:hover::before {
+  transform: translateY(0);
+}

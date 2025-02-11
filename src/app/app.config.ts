@@ -13,10 +13,9 @@ export function createTranslateLoader(http: HttpClient) {
 export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter([
-      { path: '', loadComponent: () => import('./pages/home/home.component').then(m => m.HomeComponent) },
-      { path: 'projects', loadComponent: () => import('./pages/projects/projects.component').then(m => m.ProjectsComponent) },
+      { path: '', loadComponent: () => import('./pages/about/about.component').then(m => m.AboutComponent) },
+      { path: 'works', loadComponent: () => import('./pages/works/works.component').then(m => m.WorksComponent) },
       { path: 'about', loadComponent: () => import('./pages/about/about.component').then(m => m.AboutComponent) },
-      { path: 'contact', loadComponent: () => import('./pages/contact/contact.component').then(m => m.ContactComponent) },
       { path: '**', redirectTo: '' }
     ]),
     provideHttpClient(withFetch()), // ✅ Habilitar `fetch` API

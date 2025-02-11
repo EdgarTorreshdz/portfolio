@@ -1,0 +1,73 @@
+
+/* 📌 Footer Section */
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+  font-family: "Montreal-Bold", sans-serif;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  border-top: 2px solid black;
+  background: white;
+}
+
+/* 📌 Left Section */
+.footer-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-logo {
+  width: 30px; /* Ajusta el tamaño del logo */
+}
+
+.footer-name {
+  font-weight: bold;
+}
+
+/* 📌 Center Section (Social Links) */
+.footer-center {
+  display: flex;
+  gap: 5px;
+}
+
+.footer-link {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  transition: color 0.3s ease-in-out;
+}
+
+.footer-link:hover {
+  color: gray;
+}
+
+/* 📌 Right Section (Designer Credit) */
+.footer-right {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.footer-credit {
+  font-weight: bold;
+}
+
+.footer-designer {
+  color: #cdcdcd; /* Color gris */
+}
+
+/* 📌 Responsivo */
+@media (max-width: 768px) {
+  .footer {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .footer-center {
+    margin: 10px 0;
+  }
+}

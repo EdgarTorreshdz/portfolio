@@ -1,0 +1,42 @@
+.about-me-container {
+  text-align: center;
+  padding: 3rem 1rem;
+
+  .title {
+      font-size: 3rem;
+      font-weight: 800;
+      text-transform: uppercase;
+
+      @media (min-width: 768px) {
+          font-size: 5rem;
+      }
+  }
+
+  .subtitle {
+      margin: 2rem 0;
+      font-size: 0.875rem;
+      color: gray;
+  }
+
+  .description {
+      font-size: 1.5rem;
+      font-weight: 600;
+      max-width: 800px;
+      margin: 0 auto;
+  }
+
+  .technologies-section, .contact-section {
+      margin-top: 4rem;
+  }
+
+  .technologies-title, .contact-title {
+      font-size: 0.875rem;
+      color: gray;
+      margin-bottom: 0.5rem;
+  }
+
+  .technologies-list, .contact-info {
+      font-size: 2rem;
+      font-weight: 800;
+  }
+}
