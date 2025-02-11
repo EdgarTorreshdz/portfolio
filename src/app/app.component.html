@@ -4,22 +4,22 @@
     <nav>
       <ul class="nav-links">
         <li>
-          <a (click)="navigateTo('/', 'Home')" data-hover="Home">
+          <a (click)="navigateTo('/', 'Home')" [attr.data-hover]="'menu.home' | translate">
             <span>{{ 'menu.home' | translate }}</span>
           </a>
         </li>
         <li>
-          <a (click)="navigateTo('/projects', 'Projects')" data-hover="Projects">
+          <a (click)="navigateTo('/projects', 'Projects')" [attr.data-hover]="'menu.projects' | translate">
             <span>{{ 'menu.projects' | translate }}</span>
           </a>
         </li>
         <li>
-          <a (click)="navigateTo('/about', 'About Me')" data-hover="About Me">
+          <a (click)="navigateTo('/about', 'About Me')" [attr.data-hover]="'menu.about' | translate">
             <span>{{ 'menu.about' | translate }}</span>
           </a>
         </li>
         <li>
-          <a (click)="navigateTo('/contact', 'Contact')" data-hover="Contact">
+          <a (click)="navigateTo('/contact', 'Contact')" [attr.data-hover]="'menu.contact' | translate">
             <span>{{ 'menu.contact' | translate }}</span>
           </a>
         </li>
