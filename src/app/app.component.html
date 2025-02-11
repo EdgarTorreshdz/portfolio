@@ -1,22 +1,40 @@
 <header class="navbar" [class.scrolled]="isScrolled">
-  <div class="menu-left">
+  <div *ngIf="!isMobile" class="menu-left">
     <h1 class="logo">ET</h1>
     <nav>
       <ul class="nav-links">
-        <li><a (click)="navigateTo('/')">{{ 'menu.home' | translate }}</a></li>
-        <li><a (click)="navigateTo('/projects')">{{ 'menu.projects' | translate }}</a></li>
-        <li><a (click)="navigateTo('/about')">{{ 'menu.about' | translate }}</a></li>
-        <li><a (click)="navigateTo('/contact')">{{ 'menu.contact' | translate }}</a></li>
+        <li><a (click)="navigateTo('/', 'Home')">{{ 'menu.home' | translate }}</a></li>
+        <li><a (click)="navigateTo('/projects', 'Projects')">{{ 'menu.projects' | translate }}</a></li>
+        <li><a (click)="navigateTo('/about', 'About Me')">{{ 'menu.about' | translate }}</a></li>
+        <li><a (click)="navigateTo('/contact', 'Contact')">{{ 'menu.contact' | translate }}</a></li>
       </ul>
     </nav>
   </div>
-  <div class="menu-right">
+  <div class="menu-right" *ngIf="!isMobile">
     <div class="language-selector">
       <img src="assets/icons/flag-es.svg" alt="Español" (click)="changeLanguage('es')">
       <img src="assets/icons/flag-en.svg" alt="English" (click)="changeLanguage('en')">
     </div>
-    <a (click)="navigateTo('/contact')" class="highlight">{{ 'menu.start_project' | translate }}</a>
+    <a (click)="navigateTo('/contact', 'Start a Project')" class="highlight">{{ 'menu.start_project' | translate }}</a>
   </div>
+
+  <div *ngIf="isMobile" class="mobile-navbar">
+    <div class="mobile-navbar-content">
+      <h1 class="logo">ET</h1>
+      <h2 class="section-name">{{ currentSection }}</h2>
+      <button class="menu-toggle" (click)="toggleMenu()">☰</button>
+    </div>
+  </div>
+
+
+  <nav class="nav-menu" [class.open]="menuOpen" *ngIf="isMobile">
+    <ul class="nav-links">
+      <li><a (click)="navigateTo('/', 'Home')">{{ 'menu.home' | translate }}</a></li>
+      <li><a (click)="navigateTo('/projects', 'Projects')">{{ 'menu.projects' | translate }}</a></li>
+      <li><a (click)="navigateTo('/about', 'About Me')">{{ 'menu.about' | translate }}</a></li>
+      <li><a (click)="navigateTo('/contact', 'Contact')">{{ 'menu.contact' | translate }}</a></li>
+    </ul>
+  </nav>
 </header>
 <main>
   <router-outlet></router-outlet>
