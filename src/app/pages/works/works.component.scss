@@ -10,7 +10,6 @@
 .works-title {
   font-family: "Montreal-Bold", sans-serif;
   font-size: 6.5rem;
-  letter-spacing: -0.23rem;
   line-height: 8.4rem;
   color: black;
   text-transform: uppercase;
@@ -50,10 +49,15 @@
 
 /* Imagen principal */
 .work-image .main-img {
-  width: 100%; /* 📌 Asegura que la imagen principal cubra todo el contenedor */
+  width: 80%; /* 📌 Asegura que la imagen principal cubra todo el contenedor */
   height: 100%;
   object-fit: cover; /* 📌 Evita distorsiones */
   transition: filter 0.3s ease-in-out;
+
+  @media (max-width: 1024px) {
+    width: 90%; /* 📌 Asegura que la imagen principal cubra todo el contenedor */
+    height: 60%;
+  }
 }
 
 /* Imagen hover */
@@ -135,8 +139,8 @@
   }
 
   .works-title {
-    font-size: 4rem;
-    line-height: 5rem;
+    font-size: 2rem;
+    line-height: 1;
   }
 
   .works-container {
