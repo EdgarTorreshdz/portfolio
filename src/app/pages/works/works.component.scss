@@ -26,28 +26,77 @@
   justify-content: space-between;
 }
 
-/* 📌 Work Items */
 .work-item {
-  width: 50%;
+  position: relative;
+  width: 50%; /* Para que siempre sean dos por fila */
   height: auto;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  border: 1px solid black; /* Borde similar a la imagen */
+  border: 1px solid black;
   background: white;
 }
 
 /* 📌 Work Image */
 .work-image {
+  position: relative;
   width: 100%;
-  height: 500px; /* Ajusta la altura */
+  height: 400px; /* Ajusta la altura */
   overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.work-image img {
-  width: 100%;
+/* Imagen principal */
+.work-image .main-img {
+  width: 100%; /* 📌 Asegura que la imagen principal cubra todo el contenedor */
   height: 100%;
-  object-fit: cover;
+  object-fit: cover; /* 📌 Evita distorsiones */
+  transition: filter 0.3s ease-in-out;
+}
+
+/* Imagen hover */
+.work-image .hover-img {
+  position: absolute;
+  width: 70%; /* 📌 Ajusta el tamaño de la imagen hover */
+  height: auto;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+/* Mostrar la imagen hover al pasar el mouse */
+.work-item:hover .hover-img {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+/* Convertir la imagen principal en gris claro */
+.work-item:hover .main-img {
+  filter: grayscale(100%) brightness(85%);
+}
+
+/* Responsivo */
+@media (max-width: 1024px) {
+  .works-container {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .work-item {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .work-item {
+    width: 90%;
+    max-width: 400px;
+  }
+
+  .work-image {
+    height: 250px;
+  }
 }
 
 /* 📌 Work Info */
@@ -74,7 +123,6 @@
   text-transform: uppercase;
 }
 
-
 /* 📌 Ocultar metadata en vista responsive */
 @media (max-width: 1024px) {
   .work-meta {
@@ -82,55 +130,21 @@
   }
 
   .work-title {
-    font-size: 1.8rem; /* Reducir el tamaño del título en móviles */
-    line-height: 2.2rem; /* Ajustar el espaciado */
+    font-size: 1.8rem;
+    line-height: 2.2rem;
   }
 
   .works-title {
-    font-size: 4rem; /* Ajustar el título principal */
+    font-size: 4rem;
     line-height: 5rem;
   }
 
   .works-container {
-    flex-direction: column; /* Apilar elementos en móviles */
-    gap: 15px; /* Espaciado entre elementos */
+    flex-direction: column;
+    gap: 15px;
   }
 
   .work-item {
-    width: 100%; /* Ancho completo en móviles */
-  }
-}
-/* 📌 Ajustes específicos para pantallas pequeñas */
-@media (max-width: 768px) {
-  .works-title {
-    font-size: 3rem; /* Reduce el tamaño del título principal */
-    line-height: 3.5rem;
-    text-align: center;
-    margin-bottom: 30px;
-  }
-
-  .works-container {
-    flex-direction: column; /* Apilar elementos */
-    gap: 10px; /* Espaciado menor para evitar scroll innecesario */
-    align-items: center; /* Centrar los elementos */
-  }
-
-  .work-item {
-    width: 90%; /* Reducir el ancho para dar margen lateral */
-    max-width: 400px; /* Establecer un límite */
-  }
-
-  .work-title {
-    font-size: 1.5rem; /* Reducir aún más el tamaño del título */
-    line-height: 2rem;
-    margin: 15px 0;
-  }
-
-  .work-image {
-    height: 250px; /* Reducir la altura de las imágenes */
-  }
-
-  .work-meta {
-    display: none; /* Mantener oculto en móviles */
+    width: 100%;
   }
 }
