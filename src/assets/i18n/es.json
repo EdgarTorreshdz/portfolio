@@ -33,5 +33,8 @@
     "description": "Aquí encontrarás algunos de los proyectos en los que he trabajado.",
     "selected":  "Trabajos seleccionados"
   },
+  "footer": {
+    "designed": "Diseñado por"
+  },
   "language": "Español"
 }
