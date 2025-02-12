@@ -15,7 +15,7 @@ export class NavbarComponent implements OnInit {
   isScrolled = false;
   menuOpen = false;
   isMobile = false;
-  currentSection = 'Home';
+  currentSection = 'About Me';
 
   constructor(
     private router: Router,
@@ -77,12 +77,12 @@ export class NavbarComponent implements OnInit {
 
   private updateCurrentSection(url: string) {
     const routeMapping: { [key: string]: string } = {
-      '/': 'Home',
+      '/': 'About Me',
       '/works': 'Works',
       '/about': 'About Me',
       '/contact': 'Contact'
     };
 
-    this.currentSection = routeMapping[url] || 'Home';
+    this.currentSection = routeMapping[url] || 'About Me';
   }
 }

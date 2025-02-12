@@ -1,16 +1,11 @@
 {
   "menu": {
-    "home": "Inicio",
     "projects": "Proyectos",
     "about": "Sobre mí",
     "contact": "Contacto",
     "start_project": "Iniciar un Proyecto",
     "start_project_contact": "Ponte en contacto",
     "works": "Trabajos"
-  },
-  "home": {
-    "title": "Bienvenido a mi portafolio",
-    "description": "Soy un desarrollador fullstack apasionado por crear experiencias digitales."
   },
   "projects": {
     "title": "Mis Proyectos",

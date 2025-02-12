@@ -51,10 +51,13 @@
 
   <nav class="nav-menu" [class.open]="menuOpen" *ngIf="isMobile">
     <ul class="nav-links">
-      <li><a (click)="navigateTo('/', 'Home')">{{ 'menu.home' | translate }}</a></li>
-      <li><a (click)="navigateTo('/works', 'Works')">{{ 'menu.works' | translate }}</a></li>
       <li><a (click)="navigateTo('/about', 'About Me')">{{ 'menu.about' | translate }}</a></li>
-      <li><a (click)="navigateTo('/contact', 'Contact')">{{ 'menu.contact' | translate }}</a></li>
+      <li><a (click)="navigateTo('/works', 'Works')">{{ 'menu.works' | translate }}</a></li>
+      <li><a href="mailto:eath2497@gmail.com?subject=Inicio de Proyecto">{{ 'menu.start_project' | translate }}</a></li>
+      <li class="mobile-language-selector">
+        <img src="assets/icons/icon_es.svg" alt="Español" (click)="changeLanguage('es')">
+        <img src="assets/icons/icon_en.svg" alt="English" (click)="changeLanguage('en')">
+      </li>
     </ul>
   </nav>
 </header>
