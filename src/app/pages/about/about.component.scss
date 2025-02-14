@@ -1,14 +1,34 @@
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInAnimation 0.8s ease-out forwards;
+}
+
+@keyframes fadeInAnimation {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* 🔹 Sección del título y la imagen */
 .about-header {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 3rem;
-  padding: 4rem 2rem;
-
+  text-align: center;
+  height: 100vh; /* Hace que ocupe toda la pantalla */
+  width: 100%;
   .about-title {
-    flex: 1;
-    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 
     .title {
       font-size: 5rem;
@@ -110,5 +130,94 @@
 @keyframes blink {
   50% {
     opacity: 0;
+  }
+}
+
+/* 🔹 Estilos para el botón de contacto */
+.contact-btn {
+  background-color: black;
+  color: white;
+  border: none;
+  padding: 20px 40px; /* Botón más grande */
+  font-size: 22px; /* Texto más grande */
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 8px;
+  text-transform: uppercase; /* 🔹 Convierte el texto a mayúsculas */
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-top: 30px; /* Espaciado del botón respecto al título */
+}
+
+.contact-btn:hover {
+  background-color: #333;
+  transform: scale(1.08);
+}
+
+
+/* 🔹 Diseño responsive: centra en móviles */
+@media (max-width: 1024px) {
+  .contact-btn {
+    width: 90%;
+    font-size: 18px;
+    padding: 12px 20px;
+  }
+}
+
+/* 📌 Sección de Empresas */
+.companies {
+  text-align: center;
+  margin-top: 100px;
+
+  .companies-title {
+    font-family: "Montreal-Bold", sans-serif;
+    font-size: 4rem;
+    text-transform: uppercase;
+    color: black;
+    margin-bottom: 40px;
+  }
+
+  /* 📌 Contenedor de los logos */
+  .companies-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  /* 📌 Estilos para los logos */
+  .company-logo {
+    width: 150px;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      width: 100%;
+      height: auto;
+      max-height: 80px;
+      object-fit: contain; /* Mantiene la proporción sin recortes */
+    }
+  }
+
+  /* 🔹 Diseño Responsivo */
+  @media (max-width: 1024px) {
+    .companies-container {
+      gap: 20px;
+    }
+    .company-logo {
+      width: 120px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .companies-title {
+      font-size: 2.5rem;
+    }
+    .company-logo {
+      width: 100px;
+    }
   }
 }

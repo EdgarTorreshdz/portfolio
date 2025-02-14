@@ -13,11 +13,12 @@
   },
   "about": {
     "title": "About Me",
-    "description": "Hey. I'm Edgar Torres, A 27 Years Old Latino Creative Web Developer",
+    "description": "Hello. I'm Edgar Torres, I am a Sowftware Developer",
     "myself": "Myself",
     "myself_description": "Passionate about crafting unique and memorable digital experiences, I have built a career as a creative full-stack developer, solving complex challenges with innovative solutions. Known for my commitment and creativity, I have had the privilege of collaborating with outstanding companies across Mexico.",
     "technologies": "Technologies",
-    "contact" : "Contact"
+    "contact" : "Contact",
+    "contact_me": "Contact me"
   },
   "contact": {
     "title": "Contact",
@@ -27,6 +28,10 @@
     "title": "Mis Proyectos",
     "description": "Aquí encontrarás algunos de los proyectos en los que he trabajado.",
     "selected":  "Works selected"
+  },
+  "companies":{
+    "title": "High-impact engineering and design for your growth.",
+    "subtitle": "I have worked with leading companies in different industries."
   },
   "footer": {
     "designed": "Designed by"

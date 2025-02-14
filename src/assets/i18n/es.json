@@ -13,11 +13,12 @@
   },
   "about": {
     "title": "Sobre mí",
-    "description": "Hola! Soy Edgar Torres, tengo 27 años y soy Desarrollador de Software",
+    "description": "Hola! Soy Edgar Torres, soy un Desarrollador de Software",
     "myself": "Yo",
     "myself_description": "Apasionado por crear experiencias digitales únicas y memorables, he construido una carrera como desarrollador creativo full-stack, resolviendo desafíos complejos con soluciones innovadoras. Conocido por mi compromiso y creatividad, he tenido el privilegio de colaborar con destacadas empresas en todo México.",
     "technologies": "Tecnologias",
-    "contact" : "Contacto"
+    "contact" : "Contacto",
+    "contact_me": "Contáctame"
   },
   "contact": {
     "title": "Contacto",
@@ -27,6 +28,10 @@
     "title": "Mis Proyectos",
     "description": "Aquí encontrarás algunos de los proyectos en los que he trabajado.",
     "selected":  "Trabajos seleccionados"
+  },
+  "companies":{
+    "title": "Ingeniería y diseño de alto impacto para tu crecimiento.",
+    "subtitle": "He trabajado con empresas líderes en diferentes industrias."
   },
   "footer": {
     "designed": "Diseñado por"

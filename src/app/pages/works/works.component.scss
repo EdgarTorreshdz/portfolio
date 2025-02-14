@@ -1,154 +1,313 @@
-/* 📌 Works Section */
-.works {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin: 100px 0;
+.fade-in {
+  opacity: 0;
+  transform: translateY(40px);
+  animation: fadeInAnimation 1s ease-out forwards;
 }
 
-/* 📌 Title */
-.works-title {
-  font-family: "Montreal-Bold", sans-serif;
-  font-size: 6.5rem;
-  line-height: 8.4rem;
-  color: black;
-  text-transform: uppercase;
-  margin-bottom: 50px;
-  text-align: center;
+@keyframes fadeInAnimation {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-/* 📌 Works Container */
-.works-container {
-  display: flex;
+.fade-in {
+  opacity: 0;
+  transform: translateY(40px);
+  animation: fadeInAnimation 1s ease-out forwards;
+}
+
+@keyframes fadeInAnimation {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 📌 Modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
-  height: auto;
-  justify-content: space-between;
-}
-
-.work-item {
-  position: relative;
-  width: 50%; /* Para que siempre sean dos por fila */
-  height: auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  border: 1px solid black;
-  background: white;
-}
-
-/* 📌 Work Image */
-.work-image {
-  position: relative;
-  width: 100%;
-  height: 400px; /* Ajusta la altura */
-  overflow: hidden;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 999;
 }
 
-/* Imagen principal */
-.work-image .main-img {
-  width: 80%; /* 📌 Asegura que la imagen principal cubra todo el contenedor */
-  height: 100%;
-  object-fit: cover; /* 📌 Evita distorsiones */
-  transition: filter 0.3s ease-in-out;
-
-  @media (max-width: 1024px) {
-    width: 90%; /* 📌 Asegura que la imagen principal cubra todo el contenedor */
-    height: 60%;
-  }
-}
-
-/* Imagen hover */
-.work-image .hover-img {
-  position: absolute;
-  width: 70%; /* 📌 Ajusta el tamaño de la imagen hover */
-  height: auto;
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
-}
-
-/* Mostrar la imagen hover al pasar el mouse */
-.work-item:hover .hover-img {
-  opacity: 1;
-  transform: scale(1.1);
-}
-
-/* Convertir la imagen principal en gris claro */
-.work-item:hover .main-img {
-  filter: grayscale(100%) brightness(85%);
-}
-
-/* Responsivo */
-@media (max-width: 1024px) {
-  .works-container {
-    flex-direction: column;
-    gap: 15px;
-  }
-
-  .work-item {
-    width: 100%;
-  }
-}
-
-@media (max-width: 768px) {
-  .work-item {
-    width: 90%;
-    max-width: 400px;
-  }
-
-  .work-image {
-    height: 250px;
-  }
-}
-
-/* 📌 Work Info */
-.work-info {
+.modal-content {
+  background: white;
   padding: 20px;
+  border-radius: 8px;
   text-align: center;
-  font-family: "Montreal-Bold", sans-serif;
+  max-width: 90%;
+  max-height: 90vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: auto;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  transform: translateY(-20%); /* 🔹 Mueve el modal hacia arriba */
 }
 
-.work-title {
-  font-size: 2.5rem;
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.modal-title {
+  font-size: 2rem;
   font-weight: bold;
   text-transform: uppercase;
-  margin: 20px 0;
 }
 
-/* 📌 Work Metadata */
-.work-meta {
-  display: flex;
-  justify-content: space-between;
-  border-top: 1px solid black;
-  padding: 10px;
+.modal-meta {
   font-size: 1.2rem;
-  text-transform: uppercase;
+  color: #555;
 }
 
-/* 📌 Ocultar metadata en vista responsive */
-@media (max-width: 1024px) {
-  .work-meta {
-    display: none;
+.modal-img {
+  width: 100%;
+  max-height: 250px;
+  object-fit: cover;
+  margin-top: 15px;
+}
+
+.modal-description {
+  font-size: 1rem;
+  color: #333;
+  margin-top: 10px;
+}
+
+/* 🔹 Responsivo */
+@media (max-width: 768px) {
+  .modal-content {
+    max-width: 95%;
+    padding: 15px;
+    transform: translateY(-10%); /* 🔹 Ajuste menor en móviles */
+  }
+}
+
+/* 📌 Works Section */
+.works {
+  text-align: center;
+  margin: 80px 0;
+
+  .works-title {
+    font-family: "Montreal-Bold", sans-serif;
+    font-size: 3rem;
+    text-transform: uppercase;
+    color: black;
+    margin-bottom: 40px;
+  }
+
+  /* 📌 Contenedor de proyectos */
+  .works-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 🔹 2 proyectos por fila */
+    gap: 20px;
+    max-width: 95vw;
+    margin: 0 auto;
+  }
+
+  /* 📌 Cada proyecto */
+  .work-item {
+    width: 100%;
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background: #f4f5f7;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+    cursor: pointer;
+  }
+
+  .work-item:hover {
+    transform: scale(1.02);
+  }
+
+  /* 📌 Contenedor de la imagen */
+  .work-image {
+    width: 100%;
+    height: 80%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .work-image img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.3s ease-in-out;
+  }
+
+  .work-image .hover-img {
+    opacity: 0;
+  }
+
+  .work-item:hover .hover-img {
+    opacity: 1;
+  }
+
+  /* 📌 Información del proyecto */
+  .work-info {
+    height: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: white;
+    width: 100%;
+    padding: 10px;
+    border-top: 1px solid black;
   }
 
   .work-title {
-    font-size: 1.8rem;
-    line-height: 2.2rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 5px;
   }
 
-  .works-title {
-    font-size: 2rem;
-    line-height: 1;
+  .work-meta {
+    font-size: 1.2rem;
+    color: #777;
   }
 
-  .works-container {
-    flex-direction: column;
-    gap: 15px;
+
+
+  /* 🔹 Responsivo */
+  @media (max-width: 1024px) {
+    .works-container {
+      grid-template-columns: repeat(1, 1fr);
+    }
   }
 
-  .work-item {
-    width: 100%;
+  @media (max-width: 768px) {
+    .work-item {
+      height: 280px;
+    }
+
+    .work-title {
+      font-size: 1.2rem;
+    }
   }
 }
+
+
+/* 📌 Sección de Empresas */
+.companies {
+  text-align: center;
+  margin-top: 80px;
+  margin-bottom: 80px;
+
+  .companies-title {
+    font-family: "Montreal-Bold", sans-serif;
+    font-size: 3rem;
+    text-transform: uppercase;
+    color: #1a1a1a;
+    margin-bottom: 20px;
+  }
+
+  .companies-subtitle {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 40px;
+  }
+
+  /* 📌 Contenedor principal */
+  .companies-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 🔹 4 por fila */
+    column-gap: 20px;
+    row-gap: 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  /* 📌 Cada empresa dentro de un contenedor cuadrado */
+  .company-logo {
+    width: 100%;
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #fff; /* 🔹 Fondo blanco */
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    cursor: pointer;
+  }
+
+  /* 📌 Efecto hover */
+  .company-logo:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  }
+
+  /* 📌 Ajusta la imagen dentro del contenedor */
+  .logo-wrapper {
+    width: 80%;
+    height: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .logo-wrapper img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+
+  /* 🔹 Diseño Responsivo */
+  @media (max-width: 1024px) {
+    .companies-container {
+      grid-template-columns: repeat(3, 1fr); /* 🔹 3 por fila en tablets */
+    }
+  }
+
+  @media (max-width: 768px) {
+    .companies-title {
+      font-size: 2.5rem;
+    }
+    .companies-container {
+      grid-template-columns: repeat(2, 1fr); /* 🔹 2 por fila en móviles */
+    }
+    .company-logo {
+      height: 100px;
+    }
+    .logo-wrapper {
+      width: 70%;
+      height: 60%;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .companies-container {
+      grid-template-columns: repeat(1, 1fr); /* 🔹 1 por fila en pantallas pequeñas */
+    }
+  }
+}
+

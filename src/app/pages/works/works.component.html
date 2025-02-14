@@ -1,106 +1,42 @@
-<section class="works">
-  <h2 class="works-title">{{ 'works.selected' | translate }}</h2>
+<div class="fade-in">
+  <section class="works">
+    <h2 class="works-title">{{ 'works.selected' | translate }}</h2>
 
-  <div class="works-container">
-    <div class="work-item">
-      <div class="work-image">
-        <img class="main-img" src="assets/images/portfolio.png" alt="portfolio">
-        <img class="hover-img" src="assets/images/portfolio-hover.png" alt="portfolio-hover">
-      </div>
-      <div class="work-info">
-        <h3 class="work-title">"PORTFOLIO"</h3>
-        <div class="work-meta">
-          <span>PORTFOLIO</span>
-          <span>2025</span>
-          <span>EDGAR TORRES</span>
-          <span>ANGULAR, .NET CORE</span>
+    <div class="works-container">
+      <div class="work-item" *ngFor="let work of works" (click)="openModal(work)">
+        <div class="work-image">
+          <img class="main-img" [src]="work.image" [alt]="work.name">
+          <img class="hover-img" [src]="work.hoverImage" [alt]="work.name">
+        </div>
+        <div class="work-info">
+          <h3 class="work-title">{{ work.name }}</h3>
+          <p class="work-meta">{{ work.year }} | {{ work.technologies }}</p>
         </div>
       </div>
     </div>
+  </section>
 
-    <div class="work-item">
-      <div class="work-image">
-        <img class="main-img" src="assets/images/novusred.png" alt="novusred">
-        <img class="hover-img" src="assets/images/novusred-hover.png" alt="novusred-hover">
-      </div>
-      <div class="work-info">
-        <h3 class="work-title">"ECOMMERCE"</h3>
-        <div class="work-meta">
-          <span>ECOMMERCE</span>
-          <span>2023</span>
-          <span>NOVUSRED</span>
-          <span>PHP, PRESTASHOP</span>
+  <section class="companies">
+    <h2 class="companies-title">{{ 'companies.title' | translate }}</h2>
+    <p class="companies-subtitle">{{ 'companies.subtitle' | translate }}</p>
+
+    <div class="companies-container">
+      <div class="company-logo" *ngFor="let company of companies" (click)="openCompanyUrl(company.url)">
+        <div class="logo-wrapper">
+          <img [src]="company.logo" [alt]="company.name">
         </div>
       </div>
     </div>
-  </div>
+  </section>
 
-  <div class="works-container">
-    <div class="work-item">
-      <div class="work-image">
-        <img class="main-img" src="assets/images/regalos_personalizados.png" alt="regalos_personalizados">
-        <img class="hover-img" src="assets/images/regalos_personalizados-hover.png" alt="regalos_personalizados-hover">
-      </div>
-      <div class="work-info">
-        <h3 class="work-title">"REGALOS PERSONALIZADOS"</h3>
-        <div class="work-meta">
-          <span>REGALOS PERSONALIZADOS</span>
-          <span>2022</span>
-          <span>EDGAR TORRES</span>
-          <span>LARAVEL</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="work-item">
-      <div class="work-image">
-        <img class="main-img" src="assets/images/maistros_masters.png" alt="maistros_masters">
-        <img class="hover-img" src="assets/images/maistros_masters-hover.png" alt="maistros_masters-hover">
-      </div>
-      <div class="work-info">
-        <h3 class="work-title">"MAISTROS AND MASTERS"</h3>
-        <div class="work-meta">
-          <span>MAISTROS AND MASTERS</span>
-          <span>2022</span>
-          <span>FREELANCE</span>
-          <span>LARAVEL</span>
-        </div>
-      </div>
+  <!-- 📌 Modal -->
+  <div class="modal-overlay" *ngIf="selectedWork" (click)="closeModal()">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+      <span class="close-button" (click)="closeModal()">&times;</span>
+      <img class="modal-img" [src]="selectedWork.image" [alt]="selectedWork.name">
+      <h2 class="modal-title">{{ selectedWork.name }}</h2>
+      <p class="modal-meta">{{ selectedWork.year }} | {{ selectedWork.technologies }}</p>
+      <p class="modal-description">{{ selectedWork.description }}</p>
     </div>
   </div>
-
-  <div class="works-container">
-    <div class="work-item">
-      <div class="work-image">
-        <img class="main-img" src="assets/images/recicun.png" alt="recicun">
-        <img class="hover-img" src="assets/images/recicun-hover.png" alt="recicun-hover">
-      </div>
-      <div class="work-info">
-        <h3 class="work-title">"RECICUN"</h3>
-        <div class="work-meta">
-          <span>RECICUN</span>
-          <span>2021</span>
-          <span>EDGAR TORRES</span>
-          <span>LARAVEL</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="work-item">
-      <div class="work-image">
-        <img class="main-img" src="assets/images/boatsbooking.png" alt="boatsbooking">
-        <img class="hover-img" src="assets/images/boatsbooking-hover.png" alt="boatsbooking-hover">
-      </div>
-      <div class="work-info">
-        <h3 class="work-title">"BOATSBOOKING"</h3>
-        <div class="work-meta">
-          <span>BOOKING SITE</span>
-          <span>2021</span>
-          <span>FREELANCE</span>
-          <span>LARAVEL</span>
-        </div>
-      </div>
-    </div>
-  </div>
-
-</section>
+</div>

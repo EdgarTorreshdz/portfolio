@@ -51,4 +51,8 @@ export class AboutComponent implements OnInit, OnDestroy {
       }
     }, this.typingSpeed);
   }
+
+  sendEmail() {
+    window.location.href = `mailto:${this.email}`;
+  }
 }
