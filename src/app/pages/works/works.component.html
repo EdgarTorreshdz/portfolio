@@ -3,10 +3,9 @@
     <h2 class="works-title">{{ 'works.selected' | translate }}</h2>
 
     <div class="works-container">
-      <div class="work-item" *ngFor="let work of works" (click)="openModal(work)">
+      <div class="work-item" *ngFor="let work of works">
         <div class="work-image">
           <img class="main-img" [src]="work.image" [alt]="work.name">
-          <img class="hover-img" [src]="work.hoverImage" [alt]="work.name">
         </div>
         <div class="work-info">
           <h3 class="work-title">{{ work.name }}</h3>
@@ -29,14 +28,4 @@
     </div>
   </section>
 
-  <!-- 📌 Modal -->
-  <div class="modal-overlay" *ngIf="selectedWork" (click)="closeModal()">
-    <div class="modal-content" (click)="$event.stopPropagation()">
-      <span class="close-button" (click)="closeModal()">&times;</span>
-      <img class="modal-img" [src]="selectedWork.image" [alt]="selectedWork.name">
-      <h2 class="modal-title">{{ selectedWork.name }}</h2>
-      <p class="modal-meta">{{ selectedWork.year }} | {{ selectedWork.technologies }}</p>
-      <p class="modal-description">{{ selectedWork.description }}</p>
-    </div>
-  </div>
 </div>

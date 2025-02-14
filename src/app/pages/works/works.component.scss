@@ -32,76 +32,6 @@
   }
 }
 
-/* 📌 Modal */
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.7);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 999;
-}
-
-.modal-content {
-  background: white;
-  padding: 20px;
-  border-radius: 8px;
-  text-align: center;
-  max-width: 90%;
-  max-height: 90vh;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  overflow-y: auto;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-  transform: translateY(-20%); /* 🔹 Mueve el modal hacia arriba */
-}
-
-.close-button {
-  position: absolute;
-  top: 10px;
-  right: 15px;
-  font-size: 1.5rem;
-  cursor: pointer;
-}
-
-.modal-title {
-  font-size: 2rem;
-  font-weight: bold;
-  text-transform: uppercase;
-}
-
-.modal-meta {
-  font-size: 1.2rem;
-  color: #555;
-}
-
-.modal-img {
-  width: 100%;
-  max-height: 250px;
-  object-fit: cover;
-  margin-top: 15px;
-}
-
-.modal-description {
-  font-size: 1rem;
-  color: #333;
-  margin-top: 10px;
-}
-
-/* 🔹 Responsivo */
-@media (max-width: 768px) {
-  .modal-content {
-    max-width: 95%;
-    padding: 15px;
-    transform: translateY(-10%); /* 🔹 Ajuste menor en móviles */
-  }
-}
 
 /* 📌 Works Section */
 .works {
@@ -119,21 +49,21 @@
   /* 📌 Contenedor de proyectos */
   .works-container {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 🔹 2 proyectos por fila */
+    grid-template-columns: repeat(3, 1fr); /* 🔹 2 proyectos por fila */
     gap: 20px;
-    max-width: 95vw;
+    max-width: 70vw;
     margin: 0 auto;
   }
 
   /* 📌 Cada proyecto */
   .work-item {
     width: 100%;
-    height: 350px;
+    height: 400px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    background: #f4f5f7;
+    background: #767a82;
     border-radius: 10px;
     overflow: hidden;
     transition: transform 0.3s ease-in-out;
@@ -172,7 +102,6 @@
 
   /* 📌 Información del proyecto */
   .work-info {
-    height: 20%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -200,12 +129,13 @@
   @media (max-width: 1024px) {
     .works-container {
       grid-template-columns: repeat(1, 1fr);
+      max-width: 90vw;
     }
   }
 
   @media (max-width: 768px) {
     .work-item {
-      height: 280px;
+      height: 350px;
     }
 
     .work-title {
@@ -290,7 +220,7 @@
 
   @media (max-width: 768px) {
     .companies-title {
-      font-size: 2.5rem;
+      font-size: 2rem;
     }
     .companies-container {
       grid-template-columns: repeat(2, 1fr); /* 🔹 2 por fila en móviles */

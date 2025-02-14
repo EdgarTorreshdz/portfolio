@@ -16,33 +16,43 @@ export class WorksComponent {
       name: 'Portfolio',
       year: '2025',
       technologies: 'Angular, .NET Core',
-      image: 'assets/images/portfolio.png',
-      hoverImage: 'assets/images/portfolio-hover.png',
+      image: 'assets/images/works/portfolio.png',
       description: 'Proyecto de portafolio personal con SSR optimizado para SEO.'
     },
     {
       name: 'Ecommerce',
       year: '2023',
       technologies: 'PHP, Prestashop',
-      image: 'assets/images/novusred.png',
-      hoverImage: 'assets/images/novusred-hover.png',
+      image: 'assets/images/works/novusred.png',
       description: 'Tienda en línea con pasarela de pagos integrada y diseño responsivo.'
     },
     {
       name: 'Regalos Personalizados',
       year: '2022',
       technologies: 'Laravel',
-      image: 'assets/images/regalos_personalizados.png',
-      hoverImage: 'assets/images/regalos_personalizados-hover.png',
+      image: 'assets/images/works/regalos.png',
       description: 'Plataforma de venta de regalos personalizados con catálogo dinámico.'
     },
     {
       name: 'Maistros and Masters',
       year: '2022',
       technologies: 'Laravel',
-      image: 'assets/images/maistros_masters.png',
-      hoverImage: 'assets/images/maistros_masters-hover.png',
+      image: 'assets/images/works/maistros.png',
       description: 'Sitio web de servicios profesionales y contrataciones en línea.'
+    },
+    {
+      name: 'Recicun',
+      year: '2022',
+      technologies: 'Laravel',
+      image: 'assets/images/works/recicun.png',
+      description: 'Sitio web administración de recolección de reciclaje.'
+    },
+    {
+      name: 'BoatsBooking',
+      year: '2022',
+      technologies: 'Laravel',
+      image: 'assets/images/works/boatsbooking.png',
+      description: 'Plataforma de renta de barcos.'
     }
   ];
 
@@ -63,19 +73,4 @@ export class WorksComponent {
     window.open(url, '_blank');
   }
 
-  openModal(work: any): void {
-    this.selectedWork = work;
-
-    // 🔹 Espera un pequeño tiempo para asegurarse de que el DOM se actualiza antes de desplazar
-    setTimeout(() => {
-      const modal = document.querySelector('.modal-content');
-      if (modal) {
-        modal.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      }
-    }, 50);
-  }
-
-  closeModal(): void {
-    this.selectedWork = null;
-  }
 }

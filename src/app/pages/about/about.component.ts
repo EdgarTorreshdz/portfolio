@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
+import { Router, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-about',
@@ -15,8 +16,12 @@ export class AboutComponent implements OnInit, OnDestroy {
   animatedText: string = '';
   typingSpeed: number = 50; // Velocidad de escritura (ms por letra)
   private translationSubscription: Subscription | undefined;
+  currentSection = 'About Me';
 
-  constructor(private translate: TranslateService) {}
+  constructor(
+    private router: Router,
+    private translate: TranslateService
+  ) {}
 
   ngOnInit() {
     this.getTranslatedText(); // Cargar el texto inicial
@@ -54,5 +59,10 @@ export class AboutComponent implements OnInit, OnDestroy {
 
   sendEmail() {
     window.location.href = `mailto:${this.email}`;
+  }
+
+  navigateTo(route: string, section: string) {
+    this.router.navigate([route]);
+    this.currentSection = section;
   }
 }

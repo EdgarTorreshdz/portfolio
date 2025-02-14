@@ -11,22 +11,18 @@
 
   <!-- 🔹 Resto del contenido (Myself, Tecnologías y Contacto) queda igual -->
   <div class="about-me-container">
-    <div class="subtitle">{{ 'about.myself' | translate }}</div>
-    <p class="description">
-      {{ 'about.myself_description' | translate }}
-    </p>
-
+    <div class="about-me-description">
+      <div class="subtitle">{{ 'about.myself' | translate }}</div>
+      <p class="description">
+        {{ 'about.myself_description' | translate }}
+      </p>
+    </div>
     <div class="technologies-section">
       <div class="technologies-title">{{ 'about.technologies' | translate }}</div>
       <p class="technologies-list">ANGULAR / .NET / LARAVEL / VUE</p>
-    </div>
-
-    <div class="contact-section">
-      <div class="contact-title">{{ 'about.contact' | translate }}</div>
-      <p class="contact-info">
-        <a [href]="'mailto:' + email" class="contact-email">{{ email }}</a>
-      </p>
+      <button (click)="navigateTo('/works', 'Works')" class="contact-btn">{{ 'menu.works' | translate }}</button>
     </div>
   </div>
+
 
 </div>

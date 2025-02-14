@@ -64,8 +64,12 @@
 /* 🔹 Mantiene el diseño del resto del contenido */
 .about-me-container {
   text-align: center;
-  padding: 3rem 1rem;
+  background-color: #F4F5F7;
+  padding-bottom: 50px;
 
+  .about-me-description{
+    padding: 20px 0 50px 0;
+  }
   .subtitle {
       margin: 2rem 0;
       font-size: 2rem;
@@ -106,6 +110,7 @@
 
 /* 🔹 Diseño responsive: apila en móviles */
 @media (max-width: 1024px) {
+
   .about-header {
     flex-direction: column;
     text-align: center;
