@@ -36,7 +36,7 @@
 /* 📌 Works Section */
 .works {
   text-align: center;
-  margin: 80px 0;
+  margin: 150px 0;
 
   .works-title {
     font-family: "Montreal-Bold", sans-serif;
@@ -131,6 +131,10 @@
       grid-template-columns: repeat(1, 1fr);
       max-width: 90vw;
     }
+    .works-title {
+      font-size: 2rem;
+
+    }
   }
 
   @media (max-width: 768px) {
@@ -148,8 +152,9 @@
 /* 📌 Sección de Empresas */
 .companies {
   text-align: center;
-  margin-top: 80px;
-  margin-bottom: 80px;
+  padding-top: 80px;
+  background-color: #F4F5F7;
+  height: 100vh;
 
   .companies-title {
     font-family: "Montreal-Bold", sans-serif;
@@ -213,6 +218,8 @@
 
   /* 🔹 Diseño Responsivo */
   @media (max-width: 1024px) {
+    height: auto;
+    padding-bottom: 50px;;
     .companies-container {
       grid-template-columns: repeat(3, 1fr); /* 🔹 3 por fila en tablets */
     }

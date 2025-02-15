@@ -1,5 +1,4 @@
-// 📌 NAVBAR (Menú principal)
-nav.navbar {
+.navbar {
   position: fixed;
   top: 0;
   left: 0;
@@ -7,14 +6,18 @@ nav.navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 40px 50px; /* Aumenta el padding para más espacio */
+  padding: 20px 50px;
   font-size: 22px;
   background: white;
   z-index: 1000;
   border-bottom: 3px solid black;
   text-transform: uppercase;
   font-weight: bold;
-  height: 150px; /* 🔹 Se aumentó la altura para evitar el corte */
+  transition: top 0.3s ease-in-out; /* 🔹 Transición suave */
+}
+.navbar.scrolled {
+  top: -20px; /* 🔹 Ajusta para que se desplace cuando el usuario baja */
+  opacity: 0.9;
 }
 
 /* 📌 Menú izquierdo */
@@ -75,7 +78,7 @@ nav.navbar {
   display: flex;
   align-items: center;
   position: absolute;
-  right: 50px;
+  right: 120px;
 }
 
 .menu-right .highlight {

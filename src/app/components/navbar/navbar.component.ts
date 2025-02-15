@@ -51,7 +51,13 @@ export class NavbarComponent implements OnInit {
 
   @HostListener('window:scroll', [])
   onScroll(): void {
-    this.isScrolled = window.scrollY > 50;
+    if (window.scrollY > 50) {
+      this.isScrolled = true;
+    } else {
+      this.isScrolled = false;
+    }
+
+
   }
 
   detectScreenSize(): void {
@@ -63,6 +69,7 @@ export class NavbarComponent implements OnInit {
     this.router.navigate([route]);
     this.currentSection = section;
     this.menuOpen = false;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
   toggleMenu() {
     this.menuOpen = !this.menuOpen;
