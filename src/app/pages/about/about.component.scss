@@ -34,10 +34,11 @@
       font-size: 5rem;
       font-weight: 800;
       text-transform: uppercase;
+      white-space: pre-wrap; /* 🔹 Respeta los saltos de línea */
+      text-align: center; /* 🔹 Centra correctamente el texto */
 
       @media (max-width: 1024px) {
         font-size: 2rem;
-        text-align: center;
       }
     }
   }
@@ -66,6 +67,9 @@
   text-align: center;
   background-color: #F4F5F7;
   height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   .about-me-description{
     padding: 20px 0 50px 0;
@@ -106,6 +110,10 @@
     text-decoration: none;
     color: black;
   }
+  @media (max-width: 1024px) {
+    height: auto;
+    padding-bottom: 50px;
+  }
 }
 
 /* 🔹 Diseño responsive: apila en móviles */
@@ -126,10 +134,15 @@
 }
 /* Cursor parpadeante */
 .cursor {
+  display: inline;
   font-weight: 800;
   font-size: 5rem;
   color: black;
   animation: blink 0.7s infinite;
+
+  @media (max-width: 1024px) {
+    font-size: 2rem;
+  }
 }
 
 @keyframes blink {

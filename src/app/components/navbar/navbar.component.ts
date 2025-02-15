@@ -1,8 +1,9 @@
-import { Component, HostListener, Inject, PLATFORM_ID, OnInit } from '@angular/core';
+import { Component, HostListener, Inject, PLATFORM_ID, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
-import { Router, NavigationEnd } from '@angular/router';
+import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { filter } from 'rxjs/operators';
+import { NavigationService } from '../../services/navigation.service';
 
 @Component({
   selector: 'app-navbar',
@@ -11,42 +12,105 @@ import { filter } from 'rxjs/operators';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss']
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent implements OnInit, OnDestroy {
   isScrolled = false;
   menuOpen = false;
   isMobile = false;
-  currentSection = 'About Me';
+  currentSection = 'about';
+  currentLanguage: string = 'es';
 
   constructor(
     private router: Router,
     private translate: TranslateService,
+    private route: ActivatedRoute,
+    private navigationService: NavigationService,
     @Inject(PLATFORM_ID) private platformId: object
   ) {
     this.translate.setDefaultLang('es');
-    if (isPlatformBrowser(this.platformId)) {
-      const savedLanguage = localStorage.getItem('language') || 'es';
-      this.translate.use(savedLanguage);
-    }
   }
 
   ngOnInit() {
     if (isPlatformBrowser(this.platformId)) {
-      this.detectScreenSize(); // 🔹 Detectar tamaño de pantalla al iniciar
-      window.addEventListener('resize', this.detectScreenSize.bind(this)); // 🔹 Detectar cambios en el tamaño de pantalla
+      this.detectScreenSize();
+      window.addEventListener('resize', this.detectScreenSize.bind(this));
     }
 
-    // Detectar la ruta actual y actualizar currentSection
-    this.router.events
-      .pipe(filter(event => event instanceof NavigationEnd))
-      .subscribe((event: any) => {
-        this.updateCurrentSection(event.urlAfterRedirects);
-      });
+    // Detectar cambios de ruta para actualizar idioma y sección activa
+    this.router.events.pipe(filter(event => event instanceof NavigationEnd)).subscribe(() => {
+      this.currentLanguage = this.getLanguageFromUrl();
+      this.currentSection = this.getActiveSection();
+      this.translate.use(this.currentLanguage);
+    });
+
+    // Configurar valores iniciales
+    this.currentLanguage = this.getLanguageFromUrl();
+    this.currentSection = this.getActiveSection();
   }
 
   ngOnDestroy() {
     if (isPlatformBrowser(this.platformId)) {
-      window.removeEventListener('resize', this.detectScreenSize.bind(this)); // 🔹 Limpiar el event listener
+      window.removeEventListener('resize', this.detectScreenSize.bind(this));
     }
+  }
+
+  /**
+   * 📌 Detecta el tamaño de pantalla y actualiza `isMobile`
+   */
+  detectScreenSize(): void {
+    this.isMobile = window.innerWidth < 1515;
+  }
+
+  /**
+   * 📌 Obtiene el idioma desde la URL
+   */
+  private getLanguageFromUrl(): string {
+    const segments = this.router.url.split('/');
+    return segments[1] || 'es';
+  }
+
+  /**
+   * 📌 Obtiene la sección activa desde la URL
+   */
+  private getActiveSection(): string {
+    const segments = this.router.url.split('/');
+    return segments[2] || 'about';
+  }
+
+  /**
+   * 📌 Cambia el idioma manteniendo la sección actual
+   */
+  switchLanguage() {
+    const newLang = this.currentLanguage === 'es' ? 'en' : 'es';
+    const currentPath = this.router.url.split('/').slice(2).join('/');
+    this.router.navigateByUrl(`/${newLang}/${currentPath}`);
+  }
+
+  /**
+   * 📌 Navega a una nueva sección asegurando que el idioma se mantenga en la URL
+   */
+  navigateTo(section: string) {
+    this.navigationService.navigateTo(section);
+    this.currentSection = section;
+    this.menuOpen = false; // Cierra el menú en móviles
+  }
+
+
+  /**
+   * 📌 Alterna el menú en dispositivos móviles
+   */
+  toggleMenu() {
+    this.menuOpen = !this.menuOpen;
+  }
+
+  getTranslatedSectionName(): string {
+    const sectionTranslationKeys: { [key: string]: string } = {
+      'about': 'menu.about',
+      'works': 'menu.works',
+      'contact': 'menu.contact'
+    };
+
+    const translationKey = sectionTranslationKeys[this.currentSection] || 'menu.about';
+    return this.translate.instant(translationKey); // 🔹 Obtiene el valor traducido inmediatamente
   }
 
   @HostListener('window:scroll', [])
@@ -57,39 +121,9 @@ export class NavbarComponent implements OnInit {
       this.isScrolled = false;
     }
 
+    // 🔹 Ajusta la posición del navbar dinámicamente
+    const navbar = document.querySelector('.navbar') as HTMLElement;
 
   }
 
-  detectScreenSize(): void {
-    this.isMobile = window.innerWidth < 1024;
-    console.log('isMobile:', this.isMobile); // 🔹 Debugging
-  }
-
-  navigateTo(route: string, section: string) {
-    this.router.navigate([route]);
-    this.currentSection = section;
-    this.menuOpen = false;
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-  toggleMenu() {
-    this.menuOpen = !this.menuOpen;
-  }
-
-  changeLanguage(lang: string) {
-    this.translate.use(lang);
-    if (isPlatformBrowser(this.platformId)) {
-      localStorage.setItem('language', lang);
-    }
-  }
-
-  private updateCurrentSection(url: string) {
-    const routeMapping: { [key: string]: string } = {
-      '/': 'About Me',
-      '/works': 'Works',
-      '/about': 'About Me',
-      '/contact': 'Contact'
-    };
-
-    this.currentSection = routeMapping[url] || 'About Me';
-  }
 }

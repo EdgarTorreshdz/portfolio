@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
 import { Router, NavigationEnd } from '@angular/router';
+import { NavigationService } from '../../services/navigation.service';
 
 @Component({
   selector: 'app-about',
@@ -20,7 +21,8 @@ export class AboutComponent implements OnInit, OnDestroy {
 
   constructor(
     private router: Router,
-    private translate: TranslateService
+    private translate: TranslateService,
+    private navigationService: NavigationService,
   ) {}
 
   ngOnInit() {
@@ -44,25 +46,20 @@ export class AboutComponent implements OnInit, OnDestroy {
     });
   }
 
-  startTypingAnimation(textToType: string) {
-    let index = 0;
-    this.animatedText = '';
-    const interval = setInterval(() => {
-      if (index < textToType.length) {
-        this.animatedText += textToType[index];
-        index++;
-      } else {
-        clearInterval(interval); // Detener la animación cuando termine
-      }
-    }, this.typingSpeed);
+  startTypingAnimation(textToType: string, index: number = 0) {
+    if (index < textToType.length) {
+      this.animatedText = textToType.slice(0, index + 1); // 🔹 Solo tomamos la parte escrita correctamente
+      setTimeout(() => this.startTypingAnimation(textToType, index + 1), this.typingSpeed);
+    }
   }
-
   sendEmail() {
     window.location.href = `mailto:${this.email}`;
   }
 
-  navigateTo(route: string, section: string) {
-    this.router.navigate([route]);
+  navigateTo(section: string) {
+    this.navigationService.navigateTo(section);
     this.currentSection = section;
   }
+
+
 }

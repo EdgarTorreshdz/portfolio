@@ -1,63 +1,83 @@
 <header class="navbar" [class.scrolled]="isScrolled">
   <div *ngIf="!isMobile" class="menu-left">
-    <img src="assets/icons/logo.svg" alt="Logo" class="logo">
+    <div class="mobile-logo">
+      <img src="assets/icons/logo.svg" alt="Logo" class="logo" (click)="navigateTo('about')">
+    </div>
+
     <nav>
       <ul class="nav-links">
         <li>
-          <a (click)="navigateTo('/about', 'About Me')"
-             [class.active]="currentSection === 'About Me'"
-             [attr.data-hover]="('menu.about' | translate) + ','">
-            <span>{{ 'menu.about' | translate }},</span>
+          <a (click)="navigateTo('about')" [class.active]="currentSection === 'about'">
+            {{ 'menu.about' | translate }}
           </a>
         </li>
         <li>
-          <a (click)="navigateTo('/works', 'Works')"
-             [class.active]="currentSection === 'Works'"
-             [attr.data-hover]="('menu.works' | translate) + ','">
-            <span>{{ 'menu.works' | translate }},</span>
+          <a (click)="navigateTo('works')" [class.active]="currentSection === 'works'">
+            {{ 'menu.works' | translate }}
           </a>
         </li>
-
         <li>
           <a href="mailto:eath2497@gmail.com?subject=Contacto"
              [attr.data-hover]="'menu.contact' | translate">
             <span>{{ 'menu.contact' | translate }}</span>
           </a>
         </li>
-
       </ul>
     </nav>
-    <div class="menu-right">
-      <div class="language-selector">
-        <img src="assets/icons/icon_es.svg" alt="Español" (click)="changeLanguage('es')">
-        <img src="assets/icons/icon_en.svg" alt="English" (click)="changeLanguage('en')">
-      </div>
-      <a href="mailto:eath2497@gmail.com?subject=Inicio de Proyecto"
-        class="highlight"
-        [attr.data-hover]="'menu.start_project_contact' | translate">
-        <span>{{ 'menu.start_project' | translate }}</span>
-      </a>
-
-    </div>
   </div>
 
+  <!-- 📌 Menú móvil -->
   <div *ngIf="isMobile" class="mobile-navbar">
     <div class="mobile-navbar-content">
-      <img src="assets/icons/logo.svg" alt="Logo" class="logo">
-      <h2 class="section-name">{{ currentSection }}</h2>
-      <button class="menu-toggle" (click)="toggleMenu()">☰</button>
+      <div class="mobile-logo">
+        <img src="assets/icons/logo.svg" alt="Logo" class="logo" (click)="navigateTo('about')">
+      </div>
+      <div class="mobile-title">
+        <h2 class="section-name">{{ getTranslatedSectionName() | uppercase }}</h2>
+      </div>
+
+      <div class="mobile-menu-btn">
+
+        <button class="menu-toggle" (click)="toggleMenu()">☰</button>
+      </div>
     </div>
   </div>
 
+
+  <!-- 📌 Menú lateral responsive -->
   <nav class="nav-menu" [class.open]="menuOpen" *ngIf="isMobile">
+    <button class="close-menu" (click)="toggleMenu()">✖</button>
     <ul class="nav-links">
-      <li><a (click)="navigateTo('/about', 'About Me')">{{ 'menu.about' | translate }}</a></li>
-      <li><a (click)="navigateTo('/works', 'Works')">{{ 'menu.works' | translate }}</a></li>
-      <li><a href="mailto:eath2497@gmail.com?subject=Inicio de Proyecto">{{ 'menu.start_project' | translate }}</a></li>
-      <li class="mobile-language-selector">
-        <img src="assets/icons/icon_es.svg" alt="Español" (click)="changeLanguage('es')">
-        <img src="assets/icons/icon_en.svg" alt="English" (click)="changeLanguage('en')">
+      <li>
+        <a (click)="navigateTo('about')" [class.active]="currentSection === 'about'">
+          {{ 'menu.about' | translate }}
+        </a>
+      </li>
+      <li>
+        <a (click)="navigateTo('works')" [class.active]="currentSection === 'works'">
+          {{ 'menu.works' | translate }}
+        </a>
+      </li>
+      <li>
+        <a href="mailto:eath2497@gmail.com?subject=Contacto"
+           [attr.data-hover]="'menu.contact' | translate">
+           {{ 'menu.contact' | translate }}
+        </a>
       </li>
     </ul>
   </nav>
+
+  <div class="menu-right">
+    <a href="mailto:eath2497@gmail.com?subject=Inicio de Proyecto"
+      class="highlight"
+      [attr.data-hover]="'menu.start_project_contact' | translate">
+      <span>{{ 'menu.start_project' | translate }}</span>
+    </a>
+  </div>
 </header>
+
+<!-- Botón flotante para cambiar idioma -->
+<button class="floating-lang-btn" (click)="switchLanguage()">
+  <img [src]="currentLanguage === 'es' ? 'assets/icons/icon_en.svg' : 'assets/icons/icon_es.svg'"
+       alt="Change Language">
+</button>

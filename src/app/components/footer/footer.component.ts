@@ -11,11 +11,8 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
 })
 export class FooterComponent {
   email: string = 'eath2497@gmail.com';
-  designed: string = 'eath2497@gmail.com';
 
-  constructor(
-    private translate: TranslateService
-  ){
+  constructor(private translate: TranslateService) {
     this.translate.setDefaultLang('es');
   }
 }

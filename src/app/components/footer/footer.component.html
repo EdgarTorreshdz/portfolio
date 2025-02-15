@@ -1,17 +1,17 @@
 <footer class="footer">
-  <div class="footer-left">
-    <img src="assets/icons/logo.svg" alt="Logo" class="footer-logo">
-    <span class="footer-name">EDGAR TORRES — 2025</span>
+  <div class="footer-icons">
+    <a [href]="'mailto:' + email" target="_blank" class="footer-icon">
+      <img src="assets/icons/mail.svg" alt="Email">
+    </a>
+    <a href="https://linkedin.com/in/edgar-antonio-torres-hernández-55942519b" target="_blank" class="footer-icon">
+      <img src="assets/icons/linkedin.svg" alt="LinkedIn">
+    </a>
+    <a href="https://github.com/EdgarTorreshdz" target="_blank" class="footer-icon">
+      <img src="assets/icons/github.svg" alt="GitHub">
+    </a>
   </div>
 
-  <div class="footer-center">
-    <a [href]="'mailto:' + email" class="footer-link">{{ email }}</a> /
-    <a href="https://linkedin.com/in/edgar-antonio-torres-hernández-55942519b" target="_blank" class="footer-link">LINKEDIN</a> /
-    <a href="https://github.com/EdgarTorreshdz" target="_blank" class="footer-link">GITHUB</a>
-  </div>
-
-  <div class="footer-right">
-    <span class="footer-credit">{{ 'footer.designed' | translate }}</span>
-    <span class="footer-designer">EDGAR TORRES</span>
+  <div class="footer-text">
+    <p>{{ 'footer.rights' | translate }} <strong>EDGAR TORRES</strong></p>
   </div>
 </footer>

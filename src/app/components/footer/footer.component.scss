@@ -1,74 +1,49 @@
-
-/* 📌 Footer Section */
+/* 📌 Footer */
 .footer {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  padding: 20px 50px;
+  padding: 20px;
   font-family: "Montreal-Bold", sans-serif;
-  font-size: 1.2rem;
+  font-size: 1rem;
   text-transform: uppercase;
   border-top: 2px solid black;
   background: white;
+  text-align: center;
 }
 
-/* 📌 Left Section */
-.footer-left {
+/* 📌 Iconos del footer */
+.footer-icons {
   display: flex;
-  align-items: center;
-  gap: 10px;
+  gap: 20px;
+  margin-bottom: 10px;
 }
 
-.footer-logo {
-  width: 30px; /* Ajusta el tamaño del logo */
+.footer-icon img {
+  width: 30px;
+  height: 30px;
+  transition: transform 0.3s ease-in-out, opacity 0.3s;
 }
 
-.footer-name {
+.footer-icon:hover img {
+  transform: scale(1.1);
+  opacity: 0.7;
+}
+
+/* 📌 Texto del footer */
+.footer-text {
   font-weight: bold;
-}
-
-/* 📌 Center Section (Social Links) */
-.footer-center {
-  display: flex;
-  gap: 5px;
-}
-
-.footer-link {
-  text-decoration: none;
   color: black;
-  font-weight: bold;
-  transition: color 0.3s ease-in-out;
 }
 
-.footer-link:hover {
-  color: gray;
-}
-
-/* 📌 Right Section (Designer Credit) */
-.footer-right {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
-
-.footer-credit {
-  font-weight: bold;
-}
-
-.footer-designer {
-  color: #cdcdcd; /* Color gris */
-}
-
-/* 📌 Responsivo */
+/* 📌 Diseño responsive */
 @media (max-width: 768px) {
   .footer {
-    flex-direction: column;
-    text-align: center;
-    padding: 20px;
-    font-size: .8rem;
+    padding: 15px;
   }
 
-  .footer-center {
-    margin: 10px 0;
+  .footer-icons {
+    gap: 15px;
   }
 }
