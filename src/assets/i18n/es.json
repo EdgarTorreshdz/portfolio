@@ -37,5 +37,9 @@
     "designed": "Diseñado por",
     "rights": "© 2025. Todos los derechos reservados por"
   },
+  "not-found":{
+    "description": "Pagina no encontrada",
+    "button": "Ir a casa"
+  },
   "language": "Español"
 }

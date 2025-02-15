@@ -30,7 +30,9 @@
 .menu-left .logo {
   height: 4rem;
 }
-
+.menu-left .logo:hover {
+  cursor: pointer;
+}
 /* 📌 Menú de navegación */
 .nav-links {
   list-style: none;

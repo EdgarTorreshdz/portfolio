@@ -7,13 +7,15 @@
     <nav>
       <ul class="nav-links">
         <li>
-          <a (click)="navigateTo('about')" [class.active]="currentSection === 'about'">
-            {{ 'menu.about' | translate }}
+          <a (click)="navigateTo('about')" [class.active]="currentSection === 'about'" [attr.data-hover]="'menu.about' | translate">
+            <span>{{ 'menu.about' | translate }}</span>
+
           </a>
         </li>
         <li>
-          <a (click)="navigateTo('works')" [class.active]="currentSection === 'works'">
-            {{ 'menu.works' | translate }}
+          <a (click)="navigateTo('works')" [class.active]="currentSection === 'works'" [attr.data-hover]="'menu.works' | translate">
+            <span>{{ 'menu.works' | translate }}</span>
+
           </a>
         </li>
         <li>
