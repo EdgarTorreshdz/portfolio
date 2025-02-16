@@ -18,7 +18,11 @@
     "myself_description": "Passionate about crafting unique and memorable digital experiences, I have built a career as a creative full-stack developer, solving complex challenges with innovative solutions. Known for my commitment and creativity, I have had the privilege of collaborating with outstanding companies across Mexico.",
     "technologies": "Technologies",
     "contact" : "Contact",
-    "contact_me": "Contact me"
+    "contact_me": "Contact me",
+    "languages": "Programming languages",
+    "frameworks": "Frameworks",
+    "databases": "Databases",
+    "cloud": "Cloud"
   },
   "contact": {
     "title": "Contact",

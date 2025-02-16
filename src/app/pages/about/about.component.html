@@ -4,12 +4,10 @@
       <h1 class="title">
         <span>{{ animatedText }}</span><span class="cursor">|</span>
       </h1>
-      <!-- Botón de contacto debajo del título -->
       <button (click)="sendEmail()" class="contact-btn">{{ 'about.contact_me' | translate }}</button>
     </div>
   </div>
 
-  <!-- 🔹 Resto del contenido (Myself, Tecnologías y Contacto) queda igual -->
   <div class="about-me-container">
     <div class="me-container">
       <div class="about-me-description">
@@ -18,14 +16,40 @@
           {{ 'about.myself_description' | translate }}
         </p>
       </div>
-      <div class="technologies-section">
-        <div class="technologies-title">{{ 'about.technologies' | translate }}</div>
-        <p class="technologies-list">ANGULAR / .NET / LARAVEL / VUE</p>
-        <button (click)="navigateTo('works')" class="contact-btn">{{ 'menu.works' | translate }}</button>
+
+      <div class="languages-section section-container">
+        <img src="assets/images/about/languages.svg" alt="Languages Image" class="section-img">
+        <div>
+          <div class="languages-title">{{ 'about.languages' | translate }}</div>
+          <p class="languages-list">C# / TypeScript / JavaScript / PHP / Python</p>
+        </div>
       </div>
+
+      <div class="frameworks-section section-container">
+        <img src="assets/images/about/frameworks.svg" alt="Frameworks Image" class="section-img">
+        <div>
+          <div class="frameworks-title">{{ 'about.frameworks' | translate }}</div>
+          <p class="frameworks-list">Angular / .NET / Vue / Laravel / Lumen / Ionic</p>
+        </div>
+      </div>
+
+      <div class="databases-section section-container">
+        <img src="assets/images/about/databases.svg" alt="Databases Image" class="section-img">
+        <div>
+          <div class="databases-title">{{ 'about.databases' | translate }}</div>
+          <p class="databases-list">SQL Server / MySQL / Firebase</p>
+        </div>
+      </div>
+
+      <div class="cloud-section section-container">
+        <img src="assets/images/about/cloud.svg" alt="Cloud Image" class="section-img">
+        <div>
+          <div class="cloud-title">{{ 'about.cloud' | translate }}</div>
+          <p class="cloud-list">AWS / Azure / Vercel</p>
+        </div>
+      </div>
+
+      <button (click)="navigateTo('works')" class="contact-btn">{{ 'menu.works' | translate }}</button>
     </div>
-
   </div>
-
-
 </div>
