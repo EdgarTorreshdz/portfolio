@@ -62,37 +62,4 @@ export class WorksComponent {
 
 
 
-<<<<<<< HEAD
-  loadWorks() {
-    this.translate.onLangChange.subscribe(() => {
-      this.translate.get('works.projects').subscribe((translatedWorks) => {
-        if (translatedWorks) {
-          this.works = translatedWorks;
-        } else {
-          console.error("Error: No se encontraron proyectos en la traducción.");
-        }
-      });
-    });
-  }
-
-
-  openWorkDetails(work: any) {
-    this.selectedWork = work;
-    this.disableScroll();
-  }
-
-  closeWorkDetails() {
-    this.selectedWork = null;
-    this.enableScroll();
-  }
-
-  private disableScroll() {
-    document.body.style.overflow = 'hidden';
-  }
-
-  private enableScroll() {
-    document.body.style.overflow = 'auto';
-  }
-=======
->>>>>>> parent of bc1710a (estilos y works)
 }
