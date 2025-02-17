@@ -1,12 +1,9 @@
 import { Routes } from '@angular/router';
-import { AboutComponent } from './pages/about/about.component';
-import { WorksComponent } from './pages/works/works.component';
-import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 export const routes: Routes = [
-  { path: ':lang', redirectTo: ':lang/about', pathMatch: 'full' }, // Redirigir al home con idioma
-  { path: ':lang/about', component: AboutComponent },
-  { path: ':lang/works', component: WorksComponent },
-  { path: '', redirectTo: '/es/about', pathMatch: 'full' }, // Redirigir por defecto a español
-  { path: '**', component: NotFoundComponent } // Página 404
+  { path: ':lang', redirectTo: ':lang/about', pathMatch: 'full' },
+  { path: ':lang/about', loadComponent: () => import('./pages/about/about.component').then(m => m.AboutComponent) },
+  { path: ':lang/works', loadComponent: () => import('./pages/works/works.component').then(m => m.WorksComponent) },
+  { path: '', redirectTo: '/es/about', pathMatch: 'full' },
+  { path: '**', loadComponent: () => import('./pages/not-found/not-found.component').then(m => m.NotFoundComponent) }
 ];

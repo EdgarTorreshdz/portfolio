@@ -65,7 +65,6 @@
 /* 🔹 Mantiene el diseño del resto del contenido */
 .about-me-container {
   text-align: center;
-  background-color: #F4F5F7;
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -166,64 +165,6 @@
   }
 }
 
-/* 📌 Sección de Empresas */
-.companies {
-  text-align: center;
-  margin-top: 100px;
-
-  .companies-title {
-    font-family: "Montreal-Bold", sans-serif;
-    font-size: 4rem;
-    text-transform: uppercase;
-    color: black;
-    margin-bottom: 40px;
-  }
-
-  /* 📌 Contenedor de los logos */
-  .companies-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 30px;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-
-  /* 📌 Estilos para los logos */
-  .company-logo {
-    width: 150px;
-    height: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    img {
-      width: 100%;
-      height: auto;
-      max-height: 80px;
-      object-fit: contain; /* Mantiene la proporción sin recortes */
-    }
-  }
-
-  /* 🔹 Diseño Responsivo */
-  @media (max-width: 1024px) {
-    .companies-container {
-      gap: 20px;
-    }
-    .company-logo {
-      width: 120px;
-    }
-  }
-
-  @media (max-width: 768px) {
-    .companies-title {
-      font-size: 2.5rem;
-    }
-    .company-logo {
-      width: 100px;
-    }
-  }
-}
 .section-container {
   display: flex;
   align-items: center;

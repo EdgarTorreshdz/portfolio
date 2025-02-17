@@ -15,17 +15,6 @@
     </div>
   </section>
 
-  <section class="companies">
-    <h2 class="companies-title">{{ 'companies.title' | translate }}</h2>
-    <p class="companies-subtitle">{{ 'companies.subtitle' | translate }}</p>
 
-    <div class="companies-container">
-      <div class="company-logo" *ngFor="let company of companies" (click)="openCompanyUrl(company.url)">
-        <div class="logo-wrapper">
-          <img [src]="company.logo" [alt]="company.name">
-        </div>
-      </div>
-    </div>
-  </section>
 
 </div>
