@@ -105,7 +105,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: white;
+    background: #F4F5F7;
     width: 100%;
     padding: 10px;
     border-top: 1px solid black;
@@ -148,3 +148,195 @@
   }
 }
 
+
+/* 📌 Sección de Empresas */
+.companies {
+  text-align: center;
+  padding-top: 80px;
+  background-color: #F4F5F7;
+  height: 100vh;
+
+  .companies-title {
+    font-family: "Montreal-Bold", sans-serif;
+    font-size: 3rem;
+    text-transform: uppercase;
+    color: #1a1a1a;
+    margin-bottom: 20px;
+  }
+
+  .companies-subtitle {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 40px;
+  }
+
+  /* 📌 Contenedor principal */
+  .companies-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 🔹 4 por fila */
+    column-gap: 20px;
+    row-gap: 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  /* 📌 Cada empresa dentro de un contenedor cuadrado */
+  .company-logo {
+    width: 100%;
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #fff; /* 🔹 Fondo blanco */
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    cursor: pointer;
+  }
+
+  /* 📌 Efecto hover */
+  .company-logo:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  }
+
+  /* 📌 Ajusta la imagen dentro del contenedor */
+  .logo-wrapper {
+    width: 80%;
+    height: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .logo-wrapper img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+
+  /* 🔹 Diseño Responsivo */
+  @media (max-width: 1024px) {
+    height: auto;
+    padding-bottom: 50px;;
+    .companies-container {
+      grid-template-columns: repeat(3, 1fr); /* 🔹 3 por fila en tablets */
+    }
+  }
+
+  @media (max-width: 768px) {
+    .companies-title {
+      font-size: 2rem;
+    }
+    .companies-container {
+      grid-template-columns: repeat(2, 1fr); /* 🔹 2 por fila en móviles */
+    }
+    .company-logo {
+      height: 100px;
+    }
+    .logo-wrapper {
+      width: 70%;
+      height: 60%;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .companies-container {
+      grid-template-columns: repeat(1, 1fr); /* 🔹 1 por fila en pantallas pequeñas */
+    }
+  }
+}
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Centrar vertical y horizontalmente */
+  z-index: 1000;
+  overflow: hidden;
+}
+
+.modal-content {
+  background: #F4F5F7;
+  color: black;
+  padding: 20px;
+  border-radius: 8px;
+  width: 90vw;
+  max-width: 600px;
+  max-height: 85vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+
+.close {
+  align-self: flex-end;
+  font-size: 40px;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  color: white;
+  background: black;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  border-radius: 25px;
+}
+
+.modal-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 15px;
+  max-height: 70vh;
+  overflow-y: auto;
+}
+
+.modal-image img {
+  max-width: 100%;
+  border-radius: 8px;
+}
+
+@media (max-width: 768px) {
+  .modal-content {
+    width: 95vw;
+    max-height: 90vh;
+    padding: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .modal-overlay {
+    padding: 0; /* Eliminar el padding para que ocupe toda la pantalla */
+  }
+
+  .modal-content {
+    width: 80vw;
+    max-height: none;
+    padding: 20px;
+    border-radius: 5%;
+  }
+
+  .modal-body {
+    max-height: calc(100vh - 40px); /* Ajustar la altura del contenido */
+    overflow-y: auto;
+    padding-bottom: 20px;
+  }
+
+  .modal-text h2 {
+    font-size: 1.4rem;
+  }
+
+  .modal-text p {
+    font-size: 1rem;
+  }
+}

@@ -76,10 +76,22 @@
       <span>{{ 'menu.start_project' | translate }}</span>
     </a>
   </div>
-</header>
 
-<!-- Botón flotante para cambiar idioma -->
-<button class="floating-lang-btn" (click)="switchLanguage()">
-  <img [src]="currentLanguage === 'es' ? 'assets/icons/icon_en.svg' : 'assets/icons/icon_es.svg'"
-       alt="Change Language">
-</button>
+</header>
+<!-- Selector de idioma fijo en la parte inferior derecha -->
+<div class="language-selector" (click)="toggleDropdown()" [class.open]="showDropdown">
+  <!-- Idioma actual -->
+  <div class="selected-language">
+    <img [src]="currentLanguage === 'es' ? 'assets/icons/es_ES.png' : 'assets/icons/en_US.png'"
+         alt="Current Language" class="lang-icon">
+    <span>{{ currentLanguage === 'es' ? 'Español' : 'English' }}</span>
+  </div>
+
+  <!-- Menú desplegable (solo muestra el idioma contrario) -->
+  <div class="dropdown-menu" *ngIf="showDropdown">
+    <div *ngFor="let lang of getOtherLanguage()" class="dropdown-item" (click)="switchLanguage(lang.code)">
+      <img [src]="lang.flag" alt="{{ lang.label }}" class="lang-icon">
+      <span>{{ lang.label }}</span>
+    </div>
+  </div>
+</div>
