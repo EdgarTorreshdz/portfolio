@@ -16,7 +16,6 @@
   transition: top 0.3s ease-in-out; /* 🔹 Transición suave */
 }
 .navbar.scrolled {
-  top: -20px; /* 🔹 Ajusta para que se desplace cuando el usuario baja */
   opacity: 0.9;
 }
 
@@ -141,8 +140,7 @@
   }
 
   .logo {
-    height: 4rem;
-
+    height: 2.5rem;
   }
 
   .section-name {

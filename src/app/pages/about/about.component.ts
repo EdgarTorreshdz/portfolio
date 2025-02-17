@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, HostListener } from '@angular/core';
+import { Component, OnInit, OnDestroy,ElementRef, AfterViewInit, ViewChild } from '@angular/core';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
 import { NavigationService } from '../../services/navigation.service';
@@ -19,7 +19,8 @@ export class AboutComponent implements OnInit, OnDestroy {
   private translationSubscription: Subscription | undefined;
   companiesLoaded = false;
   skillsLoaded = false;
-
+  @ViewChild('companiesSection') companiesSection!: ElementRef;
+  @ViewChild('skillsSection') skillsSection!: ElementRef;
   constructor(
     private translate: TranslateService,
     private navigationService: NavigationService
@@ -39,7 +40,7 @@ export class AboutComponent implements OnInit, OnDestroy {
   }
 
   getTranslatedText() {
-    this.translate.get('about.description').subscribe((translatedText: string) => {
+    this.translate.get('about.job').subscribe((translatedText: string) => {
       this.startTypingAnimation(translatedText);
     });
   }
@@ -65,18 +66,43 @@ export class AboutComponent implements OnInit, OnDestroy {
     window.open(url, '_blank');
   }
 
-  @HostListener('window:scroll', [])
-  onScroll(): void {
-    const scrollPosition = window.scrollY + window.innerHeight;
-    const companiesElement = document.getElementById('companies-section');
-    const skillsElement = document.getElementById('skills-section');
 
-    if (companiesElement && !this.companiesLoaded && scrollPosition > companiesElement.offsetTop) {
-      this.companiesLoaded = true;
-    }
 
-    if (skillsElement && !this.skillsLoaded && scrollPosition > skillsElement.offsetTop) {
-      this.skillsLoaded = true;
+  ngAfterViewInit() {
+    if (typeof window !== 'undefined') {
+      this.setupIntersectionObserver();
     }
   }
+
+  setupIntersectionObserver() {
+    if (typeof window !== 'undefined' && 'IntersectionObserver' in window) {
+      const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.2
+      };
+
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            if (entry.target === this.companiesSection.nativeElement) {
+              this.companiesLoaded = true;
+            } else if (entry.target === this.skillsSection.nativeElement) {
+              this.skillsLoaded = true;
+            }
+          }
+        });
+      }, observerOptions);
+
+      if (this.companiesSection) {
+        observer.observe(this.companiesSection.nativeElement);
+      }
+      if (this.skillsSection) {
+        observer.observe(this.skillsSection.nativeElement);
+      }
+    } else {
+      console.warn('IntersectionObserver no está disponible en este entorno.');
+    }
+  }
+
 }

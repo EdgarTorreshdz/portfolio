@@ -13,7 +13,8 @@
   },
   "about": {
     "title": "About Me",
-    "description": "Hello. I'm Edgar Torres, I am a Sowftware Developer",
+    "description": "Hello. I'm Edgar Torres",
+    "job": "I am a Software Developer",
     "myself": "Myself",
     "myself_description": "Passionate about crafting unique and memorable digital experiences, I have built a career as a creative full-stack developer, solving complex challenges with innovative solutions. Known for my commitment and creativity, I have had the privilege of collaborating with outstanding companies across Mexico.",
     "technologies": "Technologies",

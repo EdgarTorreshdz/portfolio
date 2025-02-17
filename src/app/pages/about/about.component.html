@@ -2,15 +2,18 @@
   <div class="about-header">
     <div class="about-title">
       <h1 class="title">
-        <span>{{ animatedText }}</span><span class="cursor">|</span>
+        {{ 'about.description' | translate }}
       </h1>
+      <h3 class="subtitle"><span>{{ animatedText }}</span><span class="cursor">|</span></h3>
       <button (click)="sendEmail()" class="contact-btn">{{ 'about.contact_me' | translate }}</button>
     </div>
   </div>
-  <section id="companies-section">
-    <app-companies *ngIf="companiesLoaded"></app-companies>
+  <section id="companies-section" #companiesSection [ngClass]="{'fade-in-section': true, 'fade-in-visible': companiesLoaded}">
+    <app-companies></app-companies>
   </section>
-  <section id="skills-section">
-    <app-skills *ngIf="skillsLoaded" (navigateToEvent)="navigateTo($event)"></app-skills>
+
+  <section id="skills-section" #skillsSection [ngClass]="{'fade-in-section': true, 'fade-in-visible': skillsLoaded}">
+    <app-skills (navigateToEvent)="navigateTo($event)"></app-skills>
   </section>
+
 </div>
