@@ -27,10 +27,17 @@ export class WorksComponent {
   }
 
   loadWorks() {
-    this.translate.get('works.projects').subscribe((translatedWorks) => {
-      this.works = translatedWorks;
+    this.translate.onLangChange.subscribe(() => {
+      this.translate.get('works.projects').subscribe((translatedWorks) => {
+        if (translatedWorks) {
+          this.works = translatedWorks;
+        } else {
+          console.error("Error: No se encontraron proyectos en la traducción.");
+        }
+      });
     });
   }
+
 
   openWorkDetails(work: any) {
     this.selectedWork = work;
