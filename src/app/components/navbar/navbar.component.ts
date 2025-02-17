@@ -18,11 +18,6 @@ export class NavbarComponent implements OnInit, OnDestroy {
   isMobile = false;
   currentSection = 'about';
   currentLanguage: string = 'es';
-  showDropdown = false;
-  languages = [
-    { code: 'es', label: 'Español', flag: 'assets/icons/es_ES.png' },
-    { code: 'en', label: 'English', flag: 'assets/icons/en_US.png' }
-  ];
 
   constructor(
     private router: Router,
@@ -81,29 +76,13 @@ export class NavbarComponent implements OnInit, OnDestroy {
     return segments[2] || 'about';
   }
 
-  getOtherLanguage() {
-      return this.languages.filter(lang => lang.code !== this.currentLanguage);
-  }
-  toggleDropdown() {
-    this.showDropdown = !this.showDropdown;
-  }
-
-  switchLanguage(lang: string) {
-    if (lang !== this.currentLanguage) {
-      this.translate.use(lang);
-      this.currentLanguage = lang;
-      this.showDropdown = false;
-      const currentPath = this.router.url.split('/').slice(2).join('/');
-      this.router.navigateByUrl(`/${lang}/${currentPath}`);
-    }
-  }
-
-  @HostListener('document:click', ['$event'])
-  closeDropdown(event: Event) {
-    const target = event.target as HTMLElement;
-    if (!target.closest('.language-selector')) {
-      this.showDropdown = false;
-    }
+  /**
+   * 📌 Cambia el idioma manteniendo la sección actual
+   */
+  switchLanguage() {
+    const newLang = this.currentLanguage === 'es' ? 'en' : 'es';
+    const currentPath = this.router.url.split('/').slice(2).join('/');
+    this.router.navigateByUrl(`/${newLang}/${currentPath}`);
   }
 
   /**
