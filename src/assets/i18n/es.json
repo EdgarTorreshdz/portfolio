@@ -32,53 +32,7 @@
   "works": {
     "title": "Mis Proyectos",
     "description": "Aquí encontrarás algunos de los proyectos en los que he trabajado.",
-    "selected":  "Trabajos seleccionados",
-    "year": "Año",
-    "technologies" : "Tecnología",
-    "projects": [
-      {
-        "name": "Portfolio Web",
-        "year": "2025",
-        "technologies": "Angular, Express (Node), Vercel",
-        "image": "assets/images/works/portfolio.png",
-        "description": "Proyecto de portafolio personal con SSR optimizado para SEO."
-      },
-      {
-        "name": "Tienda en línea de productos de tecnología",
-        "year": "2023",
-        "technologies": "PHP, Prestashop, AWS",
-        "image": "assets/images/works/novusred.png",
-        "description": "Tienda en línea con pasarela de pagos integrada y diseño responsivo."
-      },
-      {
-        "name": "Plataforma de venta de regalos personalizados",
-        "year": "2022",
-        "technologies": "Laravel",
-        "image": "assets/images/works/regalos.png",
-        "description": "Plataforma de venta de regalos personalizados con catálogo dinámico."
-      },
-      {
-        "name": "Plataforma para agendar visitas de maestros, técnicos y profesionales",
-        "year": "2022",
-        "technologies": "Laravel",
-        "image": "assets/images/works/maistros.png",
-        "description": "Sitio web de servicios profesionales y contrataciones en línea."
-      },
-      {
-        "name": "Sistema de administración para recolección de basura reciclable",
-        "year": "2022",
-        "technologies": "Laravel",
-        "image": "assets/images/works/recicun.png",
-        "description": "Sitio web para la administración de recolección de reciclaje."
-      },
-      {
-        "name": "Plataforma en línea para renta de botes",
-        "year": "2022",
-        "technologies": "Laravel",
-        "image": "assets/images/works/boatsbooking.png",
-        "description": "Plataforma de renta de barcos."
-      }
-    ]
+    "selected":  "Trabajos seleccionados"
   },
   "companies":{
     "title": "Ingeniería y diseño de alto impacto para tu crecimiento.",

@@ -32,53 +32,7 @@
   "works": {
     "title": "Mis Proyectos",
     "description": "Aquí encontrarás algunos de los proyectos en los que he trabajado.",
-    "selected":  "Works selected",
-    "year": "Year",
-    "technologies" : "Technologies",
-    "projects": [
-      {
-        "name": "Web Portfolio",
-        "year": "2025",
-        "technologies": "Angular, Express (Node), Vercel",
-        "image": "assets/images/works/portfolio.png",
-        "description": "Personal portfolio project with SSR optimized for SEO."
-      },
-      {
-        "name": "Online Technology Store",
-        "year": "2023",
-        "technologies": "PHP, Prestashop, AWS",
-        "image": "assets/images/works/novusred.png",
-        "description": "Online store with an integrated payment gateway and responsive design."
-      },
-      {
-        "name": "Custom Gift Sales Platform",
-        "year": "2022",
-        "technologies": "Laravel",
-        "image": "assets/images/works/regalos.png",
-        "description": "Custom gift sales platform with a dynamic catalog."
-      },
-      {
-        "name": "Platform for scheduling visits from teachers, technicians, and professionals",
-        "year": "2022",
-        "technologies": "Laravel",
-        "image": "assets/images/works/maistros.png",
-        "description": "Website for professional services and online hiring."
-      },
-      {
-        "name": "Management system for recyclable waste collection",
-        "year": "2022",
-        "technologies": "Laravel",
-        "image": "assets/images/works/recicun.png",
-        "description": "Website for the administration of recycling collection."
-      },
-      {
-        "name": "Online platform for boat rentals",
-        "year": "2022",
-        "technologies": "Laravel",
-        "image": "assets/images/works/boatsbooking.png",
-        "description": "Boat rental platform."
-      }
-    ]
+    "selected":  "Works selected"
   },
   "companies":{
     "title": "High-impact engineering and design for your growth.",

@@ -1,25 +1,9 @@
-<div class="modal-overlay" *ngIf="selectedWork" (click)="closeWorkDetails()">
-  <div class="modal-content" (click)="$event.stopPropagation()">
-    <span class="close" (click)="closeWorkDetails()">&times;</span>
-    <div class="modal-body">
-      <div class="modal-image">
-        <img [src]="selectedWork.image" [alt]="selectedWork.name">
-      </div>
-      <div class="modal-text">
-        <h2>{{ selectedWork.name }}</h2>
-        <p><strong>{{ 'works.year' | translate }}:</strong> {{ selectedWork.year }}</p>
-        <p><strong>{{ 'works.technologies' | translate }}:</strong> {{ selectedWork.technologies }}</p>
-        <p>{{ selectedWork.description }}</p>
-      </div>
-    </div>
-  </div>
-</div>
 <div class="fade-in">
   <section class="works">
     <h2 class="works-title">{{ 'works.selected' | translate }}</h2>
 
     <div class="works-container">
-      <div class="work-item" *ngFor="let work of works" (click)="openWorkDetails(work)">
+      <div class="work-item" *ngFor="let work of works">
         <div class="work-image">
           <img class="main-img" [src]="work.image" [alt]="work.name">
         </div>
@@ -30,4 +14,7 @@
       </div>
     </div>
   </section>
+
+
+
 </div>
