@@ -1,14 +1,8 @@
 import { ApplicationConfig, importProvidersFrom } from '@angular/core';
 import { provideRouter } from '@angular/router';
 import { provideHttpClient, withFetch } from '@angular/common/http';
-import { TranslateLoader, TranslateModule, TranslateService, TranslateStore } from '@ngx-translate/core';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { HttpClient } from '@angular/common/http';
-
-// ✅ Configuración correcta de la carga de archivos JSON
-export function createTranslateLoader(http: HttpClient) {
-  return new TranslateHttpLoader(http, '/assets/i18n/', '.json');
-}
+import { TranslateLoader, TranslateModule, TranslateService, TranslateStore } from '@ngx-translate/core'; // Importa TranslateLoader
+import { UniversalTranslateLoader } from './universal-translate-loader'; // Importa el loader personalizado
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -16,15 +10,14 @@ export const appConfig: ApplicationConfig = {
       { path: '', loadComponent: () => import('./pages/about/about.component').then(m => m.AboutComponent) },
       { path: 'works', loadComponent: () => import('./pages/works/works.component').then(m => m.WorksComponent) },
       { path: 'about', loadComponent: () => import('./pages/about/about.component').then(m => m.AboutComponent) },
-      { path: '**', redirectTo: '' }
+      { path: '**', redirectTo: '' } // Usa '**' para capturar todas las rutas no definidas
     ]),
-    provideHttpClient(withFetch()), // ✅ Habilitar `fetch` API
+    provideHttpClient(withFetch()),
     importProvidersFrom(
       TranslateModule.forRoot({
         loader: {
           provide: TranslateLoader,
-          useFactory: createTranslateLoader,
-          deps: [HttpClient]
+          useClass: UniversalTranslateLoader // Usa el loader personalizado
         }
       })
     ),
