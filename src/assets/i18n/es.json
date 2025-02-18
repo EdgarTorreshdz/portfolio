@@ -23,7 +23,8 @@
     "languages": "Lenguajes de programación",
     "frameworks": "Marcos de trabajo",
     "databases": "Bases de datos",
-    "cloud": "Nube"
+    "cloud": "Nube",
+    "download_cv": "Descargar CV"
   },
   "contact": {
     "title": "Contacto",
@@ -85,10 +86,10 @@
     "subtitle": "He trabajado con empresas líderes en diferentes industrias."
   },
   "experience":{
-    "title":"Job Experience"
+    "title":"Experiencia Laboral"
   },
   "education":{
-    "title":"Education Quality"
+    "title":"Calidad Educativa"
   },
   "footer": {
     "designed": "Diseñado por",

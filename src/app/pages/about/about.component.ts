@@ -109,5 +109,8 @@ export class AboutComponent implements OnInit, OnDestroy {
     }
   }
 
-
+  getCVLink(): string {
+    const lang = this.translate.currentLang || 'es';
+    return lang === 'es' ? 'assets/documents/Edgar_Torres_CV.pdf' : 'assets/documents/Edgar_Torres_CV_Eng.pdf';
+  }
 }

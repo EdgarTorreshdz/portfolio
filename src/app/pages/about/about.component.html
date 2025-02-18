@@ -12,9 +12,14 @@
     <app-companies></app-companies>
   </section>
 
+
   <section id="experience-section" #experienceSection [ngClass]="{'fade-in-section': true, 'fade-in-visible': experienceLoaded}">
     <app-experience-education></app-experience-education>
   </section>
+
+  <div class="cv-download-container">
+    <a [href]="getCVLink()" download class="cv-download-btn">{{ 'about.download_cv' | translate }}</a>
+  </div>
 
   <section id="skills-section" #skillsSection [ngClass]="{'fade-in-section': true, 'fade-in-visible': skillsLoaded}">
     <app-skills (navigateToEvent)="navigateTo($event)"></app-skills>

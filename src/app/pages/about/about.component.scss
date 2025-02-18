@@ -223,3 +223,30 @@
     width: 60px;
   }
 }
+
+.cv-download-container {
+  text-align: center;
+  margin-bottom: 35px;
+
+  @media (max-width: 1024px) {
+    margin-bottom: 60px;
+
+  }
+
+}
+
+.cv-download-btn {
+  background-color: #000;
+  color: #fff;
+  padding: 10px 20px;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 5px;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+}
+
+.cv-download-btn:hover {
+  background-color: #333;
+}

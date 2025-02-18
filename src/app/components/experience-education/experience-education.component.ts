@@ -10,6 +10,7 @@ import { CommonModule } from '@angular/common';
   imports: [TranslateModule,CommonModule]
 })
 export class ExperienceEducationComponent {
+
   experience = [
     {
       title: 'Desarrollador .NET',
