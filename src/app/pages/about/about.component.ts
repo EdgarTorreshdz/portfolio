@@ -5,13 +5,14 @@ import { NavigationService } from '../../services/navigation.service';
 import { CommonModule } from '@angular/common';
 import { CompaniesComponent } from '../companies/companies.component';
 import { SkillsComponent } from '../skills/skills.component';
+import { ExperienceEducationComponent } from '../../components/experience-education/experience-education.component';
 
 @Component({
   selector: 'app-about',
   templateUrl: './about.component.html',
   styleUrls: ['./about.component.scss'],
   standalone: true,
-  imports: [CommonModule, CompaniesComponent, SkillsComponent, TranslateModule]
+  imports: [CommonModule, CompaniesComponent, SkillsComponent, TranslateModule,ExperienceEducationComponent]
 })
 export class AboutComponent implements OnInit, OnDestroy {
   animatedText: string = '';
@@ -19,8 +20,11 @@ export class AboutComponent implements OnInit, OnDestroy {
   private translationSubscription: Subscription | undefined;
   companiesLoaded = false;
   skillsLoaded = false;
+  experienceLoaded = false;
   @ViewChild('companiesSection') companiesSection!: ElementRef;
   @ViewChild('skillsSection') skillsSection!: ElementRef;
+  @ViewChild('experienceSection') experienceSection!: ElementRef;
+
   constructor(
     private translate: TranslateService,
     private navigationService: NavigationService
@@ -89,20 +93,21 @@ export class AboutComponent implements OnInit, OnDestroy {
               this.companiesLoaded = true;
             } else if (entry.target === this.skillsSection.nativeElement) {
               this.skillsLoaded = true;
+            } else if (entry.target === this.experienceSection.nativeElement) {
+              this.experienceLoaded = true;
+              entry.target.classList.add('fade-in-visible'); // 🔹 Asegurar que la clase se añade
             }
           }
         });
       }, observerOptions);
 
-      if (this.companiesSection) {
-        observer.observe(this.companiesSection.nativeElement);
-      }
-      if (this.skillsSection) {
-        observer.observe(this.skillsSection.nativeElement);
-      }
+      if (this.companiesSection) observer.observe(this.companiesSection.nativeElement);
+      if (this.skillsSection) observer.observe(this.skillsSection.nativeElement);
+      if (this.experienceSection) observer.observe(this.experienceSection.nativeElement);
     } else {
       console.warn('IntersectionObserver no está disponible en este entorno.');
     }
   }
+
 
 }

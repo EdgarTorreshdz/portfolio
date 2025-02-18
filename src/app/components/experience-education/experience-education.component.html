@@ -1,0 +1,20 @@
+<section class="experience-education-container">
+  <div class="experience-column">
+    <h2 class="section-title">{{ 'experience.title' | translate }}</h2>
+    <div class="job" *ngFor="let job of experience">
+      <h3 class="job-title">{{ job.title }}</h3>
+      <p class="job-company">{{ job.company }} - {{ job.period }}</p>
+      <p class="job-tech">{{ job.technologies }}</p>
+      <p class="job-description">{{ job.description }}</p>
+    </div>
+  </div>
+
+  <div class="education-column">
+    <h2 class="section-title">{{ 'education.title' | translate }}</h2>
+    <div class="education-item" *ngFor="let edu of education">
+      <h3 class="education-title">{{ edu.title }}</h3>
+      <p class="education-institution">{{ edu.institution }}</p>
+      <p class="education-period">{{ edu.period }}</p>
+    </div>
+  </div>
+</section>

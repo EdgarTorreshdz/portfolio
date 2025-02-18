@@ -1,0 +1,77 @@
+/* experience-education.component.scss */
+.fade-in-section {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+  color: #f4f5f7;
+  margin-bottom: 20px;
+}
+
+.experience-education-container {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.experience-column, .education-column {
+  width: 48%;
+  background: #f4f5f7;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+  color: #000;
+  margin-bottom: 20px;
+}
+
+.job, .education-item {
+  background: white;
+  color: #000;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.job-title, .education-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.job-company, .education-institution {
+  font-size: 1.2rem;
+  font-style: italic;
+  color: #555;
+}
+
+.job-tech, .education-period {
+  font-size: 1rem;
+  color: #777;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .experience-education-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .experience-column, .education-column {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}

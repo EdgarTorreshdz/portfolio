@@ -84,6 +84,12 @@
     "title": "High-impact engineering and design for your growth.",
     "subtitle": "I have worked with leading companies in different industries."
   },
+  "experience":{
+    "title":"Job Experience"
+  },
+  "education":{
+    "title":"Education Quality"
+  },
   "footer": {
     "designed": "Designed by",
     "rights": "© 2025. All rights reserved by"
