@@ -1,18 +1,15 @@
 const nodemailer = require("nodemailer");
 
 module.exports = async (req, res) => {
-  // ✅ Configurar CORS
+  // ✅ Configurar CORS correctamente
   res.setHeader("Access-Control-Allow-Origin", "https://www.edgartorres.dev");
-  res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
+  res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
   res.setHeader("Access-Control-Allow-Credentials", "true");
 
+  // ✅ Manejar solicitud preflight `OPTIONS` correctamente
   if (req.method === "OPTIONS") {
-    return res.status(204).end(); // Usar 204 No Content para respuestas preflight
-  }
-  // ✅ Manejar solicitud preflight `OPTIONS`
-  if (req.method === "OPTIONS") {
-    return res.status(200).end();
+    return res.status(204).end(); // Responder con 204 No Content
   }
 
   // ✅ Solo aceptar POST
