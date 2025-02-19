@@ -5,7 +5,11 @@ module.exports = async (req, res) => {
   res.setHeader("Access-Control-Allow-Origin", "https://www.edgartorres.dev");
   res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
+  res.setHeader("Access-Control-Allow-Credentials", "true");
 
+  if (req.method === "OPTIONS") {
+    return res.status(204).end(); // Usar 204 No Content para respuestas preflight
+  }
   // ✅ Manejar solicitud preflight `OPTIONS`
   if (req.method === "OPTIONS") {
     return res.status(200).end();
