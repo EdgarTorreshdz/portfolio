@@ -27,8 +27,11 @@
     "download_cv": "Descargar CV"
   },
   "contact": {
-    "title": "Contacto",
-    "description": "Puedes contactarme a través de mis redes sociales o correo electrónico."
+    "title": "Contacta conmigo",
+    "description": "Puedes contactarme a través de mis redes sociales o correo electrónico.",
+    "number": "Número",
+    "abailability" : "Estoy disponible para trabajo freelance. Contáctame a través de WhatsApp y correo electrónico.",
+    "mail": "Correo"
   },
   "works": {
     "title": "Mis Proyectos",

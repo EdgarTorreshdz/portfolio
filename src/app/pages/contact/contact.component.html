@@ -1,0 +1,29 @@
+<div class="contact-container">
+  <div class="contact-information">
+    <h2 class="contact-title">{{ 'contact.title' | translate }}</h2>
+    <div class="contact-content">
+      <div class="contact-info">
+        <h3 class="my-name">Edgar Antonio Torres Hernández</h3>
+        <p>{{ 'contact.abailability' | translate}}</p>
+        <p>{{ 'contact.number' | translate}}</p>
+        <p>+52 9984075027</p>
+        <p>{{ 'contact.mail' | translate}}</p>
+        <p>{{'eath2497@gmail.com'}}</p>
+
+      </div>
+      <form [formGroup]="contactForm" (ngSubmit)="sendMessage()" class="contact-form">
+        <div class="input-group">
+          <input type="text" formControlName="name" placeholder="Tu Nombre" class="input-field"/>
+          <input type="text" formControlName="phone" placeholder="Teléfono" class="input-field"/>
+        </div>
+        <input type="email" formControlName="email" placeholder="Email" class="input-field"/>
+        <input type="text" formControlName="subject" placeholder="Asunto" class="input-field"/>
+        <textarea formControlName="message" placeholder="Tu Mensaje" class="input-field" rows="10"></textarea>
+        <div class="g-recaptcha" data-sitekey="6LeWp9sqAAAAADCpaJaQrIv1q7Dln99yzs0XcAPb"></div>
+        <button type="submit" [disabled]="contactForm.invalid" class="submit-button">Enviar Mensaje</button>
+        <p *ngIf="messageSent" class="success-message">Mensaje enviado correctamente</p>
+      </form>
+    </div>
+  </div>
+
+</div>
