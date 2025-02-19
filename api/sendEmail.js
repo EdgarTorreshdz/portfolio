@@ -1,27 +1,28 @@
-const nodemailer = require('nodemailer');
+const nodemailer = require("nodemailer");
 
 module.exports = async (req, res) => {
-  // Permitir CORS
-  res.setHeader("Access-Control-Allow-Origin", "*");
+  // 🔹 Configurar CORS
+  res.setHeader("Access-Control-Allow-Origin", "https://www.edgartorres.dev");
   res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
 
-  // Manejo de preflight request (OPTIONS)
+  // 🔹 Responder a las solicitudes preflight (`OPTIONS`)
   if (req.method === "OPTIONS") {
     return res.status(200).end();
   }
 
+  // 🔹 Verificar si la petición es `POST`
   if (req.method !== "POST") {
     return res.status(405).json({ error: "Método no permitido" });
   }
 
+  // 🔹 Obtener datos del formulario
   const { name, email, message, recaptcha } = req.body;
-
   if (!name || !email || !message || !recaptcha) {
     return res.status(400).json({ error: "Todos los campos son obligatorios" });
   }
 
-  // Validar reCAPTCHA
+  // 🔹 Validar reCAPTCHA
   const recaptchaRes = await fetch(`https://www.google.com/recaptcha/api/siteverify`, {
     method: "POST",
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
@@ -32,7 +33,7 @@ module.exports = async (req, res) => {
     return res.status(400).json({ error: "Fallo en la validación de reCAPTCHA" });
   }
 
-  // Configurar transporte de nodemailer
+  // 🔹 Configurar transporte de nodemailer
   const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
