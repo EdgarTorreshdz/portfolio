@@ -1,20 +1,18 @@
 const nodemailer = require("nodemailer");
 
 module.exports = async (req, res) => {
-  res.setHeader("Access-Control-Allow-Origin", "https://www.edgartorres.dev");
+  // ✅ Configurar CORS correctamente
+  res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
   res.setHeader("Access-Control-Allow-Credentials", "true");
 
-  // ✅ Responder correctamente a las solicitudes preflight `OPTIONS`
+  // ✅ Manejar solicitudes `OPTIONS` (preflight)
   if (req.method === "OPTIONS") {
-    res.writeHead(204, {
-      "Content-Length": "0",
-      "Content-Type": "text/plain"
-    });
-    return res.end();
+    return res.status(204).end(); // Código 204 No Content
   }
 
+  // ✅ Solo aceptar POST
   if (req.method !== "POST") {
     return res.status(405).json({ error: "Método no permitido" });
   }
@@ -36,6 +34,8 @@ module.exports = async (req, res) => {
     if (!recaptchaRes.success || recaptchaRes.score < 0.5) {
       return res.status(400).json({ error: "Fallo en la validación de reCAPTCHA" });
     }
+  } else {
+    console.log("Usando dummy token, omitiendo validación de reCAPTCHA.");
   }
 
   // ✅ Configurar nodemailer
