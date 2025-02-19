@@ -9,5 +9,7 @@
         { "key": "Access-Control-Allow-Credentials", "value": "true" }
       ]
     }
-  ]
+  ],
+  "redirects": [],
+  "rewrites": []
 }

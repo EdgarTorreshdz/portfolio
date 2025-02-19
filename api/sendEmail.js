@@ -7,9 +7,9 @@ module.exports = async (req, res) => {
   res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
   res.setHeader("Access-Control-Allow-Credentials", "true");
 
-  // ✅ Manejar solicitud preflight `OPTIONS` correctamente
+  // ✅ Manejar correctamente solicitud preflight `OPTIONS`
   if (req.method === "OPTIONS") {
-    return res.status(204).end(); // Responder con 204 No Content
+    return res.status(204).end(); // Asegurar que no redirige
   }
 
   // ✅ Solo aceptar POST
