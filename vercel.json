@@ -6,16 +6,14 @@
         { "key": "Access-Control-Allow-Origin", "value": "https://www.edgartorres.dev" },
         { "key": "Access-Control-Allow-Methods", "value": "GET, POST, OPTIONS" },
         { "key": "Access-Control-Allow-Headers", "value": "Content-Type, Authorization" },
-        { "key": "Access-Control-Allow-Credentials", "value": "true" },
-        { "key": "Vary", "value": "Origin" }
+        { "key": "Access-Control-Allow-Credentials", "value": "true" }
       ]
     }
   ],
-  "redirects": [
+  "rewrites": [
     {
-      "source": "/api/(.*)",
-      "destination": "/api/$1",
-      "permanent": false
+      "source": "/api/:path*",
+      "destination": "/api/:path*"
     }
   ]
 }
