@@ -1,24 +1,24 @@
 import nodemailer from "nodemailer";
 
 export default async function handler(req, res) {
+  console.log("🔹 API llamada: /api/sendEmail");
+
   if (req.method !== "POST") {
+    console.error("❌ Método no permitido:", req.method);
     return res.status(405).json({ error: "Método no permitido" });
   }
 
   const { name, email, message, recaptcha } = req.body;
+  console.log("📨 Datos recibidos:", { name, email, message });
 
   try {
-    // Validar reCAPTCHA en Vercel
-    const recaptchaRes = await fetch(
-      `https://www.google.com/recaptcha/api/siteverify?secret=${process.env.RECAPTCHA_SECRET}&response=${recaptcha}`,
-      { method: "POST" }
-    ).then((res) => res.json());
-
-    if (!recaptchaRes.success || recaptchaRes.score < 0.5) {
-      return res.status(400).json({ error: "Fallo en la validación de reCAPTCHA" });
+    // Validar si las variables de entorno existen
+    if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
+      console.error("❌ Faltan variables de entorno");
+      return res.status(500).json({ error: "Faltan configuraciones de servidor" });
     }
 
-    // Configuración de nodemailer en Vercel
+    // Configurar el envío de correo
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
@@ -34,10 +34,13 @@ export default async function handler(req, res) {
       text: `Nombre: ${name}\nEmail: ${email}\nMensaje: ${message}`,
     };
 
+    console.log("📤 Enviando correo...");
     await transporter.sendMail(mailOptions);
+    console.log("✅ Correo enviado correctamente");
+
     res.status(200).json({ message: "Correo enviado correctamente" });
   } catch (error) {
-    console.error("Error enviando el correo:", error);
+    console.error("❌ Error enviando el correo:", error);
     res.status(500).json({ error: "Error al enviar el correo" });
   }
 }
