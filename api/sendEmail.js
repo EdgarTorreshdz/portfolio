@@ -1,37 +1,47 @@
-require('dotenv').config();
 const nodemailer = require('nodemailer');
 
 module.exports = async (req, res) => {
-  if (req.method !== 'POST') {
+  if (req.method !== "POST") {
     return res.status(405).json({ error: "Método no permitido" });
   }
 
-  const { name, email, message } = req.body;
+  const { name, email, message, recaptcha } = req.body;
 
-  if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
-    return res.status(500).json({ error: "Faltan configuraciones de servidor" });
+  if (!name || !email || !message || !recaptcha) {
+    return res.status(400).json({ error: "Todos los campos son obligatorios" });
   }
 
+  // Validar reCAPTCHA
+  const recaptchaRes = await fetch(`https://www.google.com/recaptcha/api/siteverify`, {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: `secret=${process.env.RECAPTCHA_SECRET_KEY}&response=${recaptcha}`,
+  }).then(res => res.json());
+
+  if (!recaptchaRes.success || recaptchaRes.score < 0.5) {
+    return res.status(400).json({ error: "Fallo en la validación de reCAPTCHA" });
+  }
+
+  // Configurar transporte de nodemailer
   const transporter = nodemailer.createTransport({
-    service: 'gmail',
+    service: "gmail",
     auth: {
       user: process.env.EMAIL_USER,
-      pass: process.env.EMAIL_PASS,
-    },
+      pass: process.env.EMAIL_PASS
+    }
   });
 
   const mailOptions = {
     from: process.env.EMAIL_USER,
-    to: 'eath2497@gmail.com',
+    to: "eath2497@gmail.com",
     subject: `Nuevo mensaje de ${name}`,
-    text: `Nombre: ${name}\nEmail: ${email}\nMensaje: ${message}`,
+    text: `Nombre: ${name}\nEmail: ${email}\nMensaje: ${message}`
   };
 
   try {
     await transporter.sendMail(mailOptions);
     res.status(200).json({ message: "Correo enviado correctamente" });
   } catch (error) {
-    console.error('Error enviando el correo:', error);
-    res.status(500).json({ error: "Error al enviar el correo" });
+    res.status(500).json({ error: "Error enviando el correo", details: error.message });
   }
 };
