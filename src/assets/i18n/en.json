@@ -27,11 +27,8 @@
     "download_cv": "Download CV"
   },
   "contact": {
-    "title": "Contact With Me",
-    "description": "You can contact me through my social media or email.",
-    "number": "Phone",
-    "abailability" : "I am available for freelance work. Connect with me via WhatsApp and email.",
-    "mail": "Email"
+    "title": "Contact",
+    "description": "You can contact me through my social media or email."
   },
   "works": {
     "title": "Mis Proyectos",

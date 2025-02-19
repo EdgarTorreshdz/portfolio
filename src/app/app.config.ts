@@ -10,7 +10,6 @@ export const appConfig: ApplicationConfig = {
       { path: '', loadComponent: () => import('./pages/about/about.component').then(m => m.AboutComponent) },
       { path: 'works', loadComponent: () => import('./pages/works/works.component').then(m => m.WorksComponent) },
       { path: 'about', loadComponent: () => import('./pages/about/about.component').then(m => m.AboutComponent) },
-      { path: 'contact', loadComponent: () => import('./pages/contact/contact.component').then(m => m.ContactComponent) },
       { path: '**', redirectTo: '' } // Usa '**' para capturar todas las rutas no definidas
     ]),
     provideHttpClient(withFetch()),

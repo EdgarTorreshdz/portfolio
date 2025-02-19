@@ -19,7 +19,8 @@
           </a>
         </li>
         <li>
-          <a (click)="navigateTo('contact')" [class.active]="currentSection === 'contact'" [attr.data-hover]="'menu.contact' | translate">
+          <a href="mailto:eath2497@gmail.com?subject=Contacto"
+             [attr.data-hover]="'menu.contact' | translate">
             <span>{{ 'menu.contact' | translate }}</span>
           </a>
         </li>
@@ -60,8 +61,9 @@
         </a>
       </li>
       <li>
-        <a (click)="navigateTo('contact')" [class.active]="currentSection === 'contact'">
-          {{ 'menu.contact' | translate }}
+        <a href="mailto:eath2497@gmail.com?subject=Contacto"
+           [attr.data-hover]="'menu.contact' | translate">
+           {{ 'menu.contact' | translate }}
         </a>
       </li>
     </ul>
