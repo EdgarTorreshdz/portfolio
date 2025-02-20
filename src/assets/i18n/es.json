@@ -42,7 +42,7 @@
         "year": "2025",
         "technologies": "Angular, Express (Node), Vercel",
         "image": "assets/images/works/portfolio.png",
-        "description": "Proyecto de portafolio personal con SSR optimizado para SEO."
+        "description": "Proyecto de portafolio personal"
       },
       {
         "name": "Tienda en línea de productos de tecnología",
